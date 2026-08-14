@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Publication Volume Not Found</title>
+  <link rel="icon" type="image/jpeg" href="https://csc.pduamamjonga.in/assets/logo/pduam-logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1321;
+      --gold: #c6a15b;
+      --gold-dim: #e4d3ac;
+      --paper: #f7f4ee;
+      --ink: #201f1d;
+      --ink-soft: #5b5850;
+      --line: #ddd6c6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.8;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-width: 600px;
+      margin: 40px 0;
+    }
+
+    .error-code {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(100px, 20vw, 160px);
+      line-height: 1;
+      color: var(--navy);
+      font-weight: 300;
+      position: relative;
+    }
+
+    .error-code::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 10px auto 24px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin-bottom: 32px;
+    }
+
+    .links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .btn {
+      display: block;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+      border: 1px solid var(--navy);
+      box-shadow: 0 4px 12px rgba(13,19,33,0.15);
+    }
+
+    .btn-primary:hover {
+      background: #17223b;
+      border-color: #17223b;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(13,19,33,0.03);
+      border-color: var(--navy);
+    }
+
+    footer {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Dept. of Computer Science &middot; PDUAM Amjonga
+  </header>
+
+  <div class="main-content">
+    <div class="error-code">404</div>
+    <h1>Volume Not Found</h1>
+    <p>The academic resource, chapter paper, or publication volume you are looking for has been relocated or is unavailable.</p>
+    
+    <div class="links-grid">
+      <a href="/multidisciplinary-book-publish" class="btn btn-primary">Return to Book Portal</a>
+      <a href="/multidisciplinary-book-publish/edition-1/" class="btn btn-secondary">Browse 1st Edition (2025)</a>
+      <a href="/multidisciplinary-book-publish/edition-2/" class="btn btn-secondary">Browse 2nd Edition (2026)</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Department of Computer Science, PDUAM Amjonga. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

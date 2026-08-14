@@ -1,95 +1,62 @@
-# Department of Computer Science, PDUAM Amjonga — Book Publications Portal
+# Computer Science Department Book Publications Portal
 
-This repository contains the official publications portal and chapter archives for the multidisciplinary edited volumes published by the Department of Computer Science, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya (PDUAM), Amjonga, Goalpara, Assam, India.
+Welcome! This is the official file repository for the book publishing portal of the Department of Computer Science, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya (PDUAM), Amjonga.
 
----
-
-## 📂 Repository Structure
-
-The portal is designed as a lightweight, clean, and self-contained static site structure:
-
-```text
-multidisciplinary-book-publish/
-├── index.html                    # Main portal home page (showcases all volumes)
-├── README.md                     # Documentation & developer guide (this file)
-├── edition-1/                    # First Edition: "Multidisciplinary Research: Innovations..."
-│   ├── index.html                # Chapter list & contributor index
-│   ├── coverImage_en.png         # Volume 1 cover photo
-│   └── ch/                       # Directory containing PDF chapters and compiled book
-│       ├── chapter1.pdf
-│       └── finalbook.pdf
-└── edition-2/                    # Second Edition: "Advances in Multidisciplinary Research..."
-    ├── index.html                # Chapter list & contributor index
-    ├── coverImage_en.jpg         # Volume 2 cover photo (generated)
-    └── chapters/                 # Directory containing Volume 2 PDF chapters
-        └── .gitkeep
-```
+This page explains how the files are organized, what public web links they map to, and how teachers and editorial staff can make simple updates.
 
 ---
 
-## 🚀 Deployment & Reverse Proxy Setup
+## 🌐 Public Web Links (URLs)
+The files in this repository are served on the internet at these specific web addresses:
 
-This repository is designed to be hosted independently (e.g., on Vercel as `multidisciplinary-book-publish.vercel.app`) but accessed seamlessly through the main department website domain via a reverse proxy rewrite.
-
-### Main Site Vercel Configuration (`vercel.json`)
-The main repository (`cscpduam`) routing rules map incoming traffic from `/books-publish` directly to this project:
-
-```json
-{
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/books-publish",
-      "destination": "https://multidisciplinary-book-publish.vercel.app"
-    },
-    {
-      "source": "/books-publish/:path*",
-      "destination": "https://multidisciplinary-book-publish.vercel.app/:path*"
-    }
-  ]
-}
-```
-
-This configuration ensures:
-- The books portal loads at: `https://csc.pduamamjonga.in/books-publish`
-- Edition 1 loads at: `https://csc.pduamamjonga.in/books-publish/edition-1`
-- Edition 2 loads at: `https://csc.pduamamjonga.in/books-publish/edition-2`
+| Web Link (URL) | What Page It Opens |
+| :--- | :--- |
+| **[csc.pduamamjonga.in/multidisciplinary-book-publish](https://csc.pduamamjonga.in/multidisciplinary-book-publish)** | The **Main Portal Homepage** (shows all books) |
+| **[csc.pduamamjonga.in/multidisciplinary-book-publish/edition-1/](https://csc.pduamamjonga.in/multidisciplinary-book-publish/edition-1/)** | **First Edition (2025)** chapter listing and search |
+| **[csc.pduamamjonga.in/multidisciplinary-book-publish/edition-2/](https://csc.pduamamjonga.in/multidisciplinary-book-publish/edition-2/)** | **Second Edition (2026)** chapter listing and search |
 
 ---
 
-## ➕ How to Add a Future Edition (e.g., 3rd Edition)
+## 📂 Folders and Files Guide
 
-To add a new edition in the future, follow this step-by-step procedure:
+Here is a simple map of what files are located in this folder:
 
-### Step 1: Create the Folder Structure
-Create a new folder in this root directory named `edition-3` (use lowercase, hyphenated naming):
-```text
-multidisciplinary-book-publish/
-└── edition-3/
-    ├── index.html
-    ├── coverImage_en.jpg
-    └── chapters/
-```
-
-### Step 2: Prepare the Sub-Index & PDFs
-1. Copy the structure of `index.html` from `edition-2` or `edition-1` to act as the chapter index page.
-2. Edit the metadata (ISBN, E-ISBN, DOI, Editors, Chapter list) in `edition-3/index.html`.
-3. Put the chapter PDF files in `edition-3/chapters/`.
-4. Ensure all link paths are **fully relative** so they do not break when hosted under a subdirectory (e.g., link to chapters as `chapters/chapter1.pdf` instead of absolute paths).
-
-### Step 3: Add to the Main Portal
-Open the root `index.html` in this repository and update the **Published Volumes** section:
-1. Move the `Latest Volume` badge from Edition 2 to your new Edition 3 card.
-2. Duplicate one of the `<article class="volume-card">` nodes and paste it at the top of the `<div class="volumes-container">` container.
-3. Update the details for the 3rd Edition (Title, description, ISBNs, editors, chapter stats, and cover image source).
-4. Point the "Browse Chapter Index" button to: `edition-3/index.html`.
-
-### Step 4: Commit and Push
-Commit your changes to git and push them to your deployment branch. Vercel will automatically compile the build and the new volume will be immediately live under `/books-publish/edition-3/`!
+* 📄 **`index.html`** (Main Portal Home)
+  * This is the front page of the book portal. It displays the summary of the book publishing series, advisory boards, and displays cards linking to each edition.
+* 📄 **`404.html`** (Custom Error Page)
+  * Displays a polite message if a visitor enters a broken link.
+* 📂 **`edition-1/`** (First Edition Folder)
+  * Contains all pages and files for the first book published in 2025.
+  * 📘 **[First Edition Guide & Instructions (`edition-1/README.md`)](file:///D:/Codes/csc-pduam/multidisciplinary-book-publish/edition-1/README.md)** (Click here to read)
+* 📂 **`edition-2/`** (Second Edition Folder)
+  * Contains all pages and files for the second book published in 2026.
+  * 📘 **[Second Edition Guide & Instructions (`edition-2/README.md`)](file:///D:/Codes/csc-pduam/multidisciplinary-book-publish/edition-2/README.md)** (Click here to read)
 
 ---
 
-## 📬 Editorial Board & Contacts
-For issues regarding book publishing or updates to the chapter indexes:
-- **Email:** `cscpduambookchapter@gmail.com`
-- **Department portal:** `https://csc.pduamamjonga.in`
+## 📝 How to Manage the Portal (For Teachers & Editors)
+
+### 1. How to Correct Contributor Names or Titles
+If there is a typo in a chapter title, author name, or institutional affiliation:
+1. Go to the folder of the edition you want to edit (e.g., `edition-2/`).
+2. Open the `index.html` file inside that folder.
+3. Search for the text you want to correct, edit it, and save the file.
+
+### 2. How to Upload or Replace a Chapter PDF
+If you need to upload a chapter or replace an existing file:
+1. Name your PDF file matching the standard format (e.g., `chapter20.pdf`).
+2. Place it in the `chapters/` folder inside that edition (e.g., `edition-2/chapters/`).
+3. If it is a new file, make sure it is linked correctly in the `index.html` chapter list.
+
+### 3. How to Add a Future Edition (e.g., 3rd Edition)
+1. Copy one of the existing edition folders (like `edition-2/`) and rename it to `edition-3/`.
+2. Delete the old PDF files inside `edition-3/chapters/` and upload your new chapter PDFs.
+3. Open `edition-3/index.html` and update the titles, authors, and book metadata (ISBN, Editors, Year).
+4. Update the root `index.html` to add a new card linking to `/multidisciplinary-book-publish/edition-3/`.
+
+---
+
+## 📬 Editorial Contacts
+For any portal queries or requests:
+* **Editorial Email:** `cscpduambookchapter@gmail.com`
+* **Department Website:** `https://csc.pduamamjonga.in`
