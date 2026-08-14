@@ -1,4 +1,6 @@
 {
+  "buildCommand": "node inject-base.js",
+  "outputDirectory": ".",
   "redirects": [
     {
       "source": "/",
