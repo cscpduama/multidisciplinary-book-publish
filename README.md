@@ -51,9 +51,9 @@ The main repository (`cscpduam`) routing rules map incoming traffic from `/books
 ```
 
 This configuration ensures:
-- The books portal loads at: `https://csc.pduam.dpdns.org/books-publish`
-- Edition 1 loads at: `https://csc.pduam.dpdns.org/books-publish/edition-1`
-- Edition 2 loads at: `https://csc.pduam.dpdns.org/books-publish/edition-2`
+- The books portal loads at: `https://csc.pduamamjonga.in/books-publish`
+- Edition 1 loads at: `https://csc.pduamamjonga.in/books-publish/edition-1`
+- Edition 2 loads at: `https://csc.pduamamjonga.in/books-publish/edition-2`
 
 ---
 
@@ -92,4 +92,4 @@ Commit your changes to git and push them to your deployment branch. Vercel will 
 ## 📬 Editorial Board & Contacts
 For issues regarding book publishing or updates to the chapter indexes:
 - **Email:** `cscpduambookchapter@gmail.com`
-- **Department portal:** `https://csc.pduam.dpdns.org`
+- **Department portal:** `https://csc.pduamamjonga.in`
