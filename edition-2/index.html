@@ -491,18 +491,86 @@
     outline: 2px solid var(--gold);
     outline-offset: 2px;
   }
+
+  /* ── Edition Nav (extracted from inline styles) ── */
+  .edition-nav {
+    background: rgba(21, 34, 56, 0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .edition-nav-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .edition-nav-links {
+    display: flex;
+    gap: 20px;
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+  .edition-nav-link {
+    text-decoration: none;
+    color: #cfd3dd;
+    transition: color 0.2s;
+  }
+  .edition-nav-link:hover { color: #c6a15b; }
+
+  /* ── Masthead cover (extracted from inline styles) ── */
+  .masthead-cover-wrap {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .masthead-book-wrap {
+    width: 180px;
+    height: 240px;
+    transform: rotateY(-12deg) rotateX(4deg);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    box-shadow: 8px 8px 30px rgba(0,0,0,0.5);
+    border-radius: 2px 8px 8px 2px;
+    overflow: hidden;
+    border-left: 3px solid rgba(255,255,255,0.1);
+  }
+  .masthead-book-wrap:hover {
+    transform: rotateY(-20deg) rotateX(6deg) scale(1.05);
+  }
+  .masthead-book-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 600px) {
+    .edition-nav { padding: 10px 16px; gap: 8px; }
+    .edition-nav-links { gap: 12px; font-size: 12.5px; }
+    .masthead-book-wrap { width: 130px; height: 175px; }
+  }
 </style>
 </head>
 <body>
 
-<nav class="edition-nav" style="background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); background: rgba(21, 34, 56, 0.95);">
-  <div style="font-family: 'Space Mono', monospace; font-size: 13px; color: var(--gold); font-weight: 700; letter-spacing: 0.05em;">
+<nav class="edition-nav">
+  <div class="edition-nav-brand">
     CS Dept. Publications
   </div>
-  <div style="display: flex; gap: 20px; font-size: 13.5px; font-weight: 500;">
-    <a href="/" style="text-decoration: none; color: #cfd3dd; transition: color 0.2s;" onmouseover="this.style.color='#c6a15b'" onmouseout="this.style.color='#cfd3dd'">Home</a>
-    <a href="/multidisciplinary-book-publish" style="text-decoration: none; color: #cfd3dd; transition: color 0.2s;" onmouseover="this.style.color='#c6a15b'" onmouseout="this.style.color='#cfd3dd'">Portal</a>
-    <a href="/multidisciplinary-book-publish/edition-1/" style="text-decoration: none; color: #cfd3dd; transition: color 0.2s;" onmouseover="this.style.color='#c6a15b'" onmouseout="this.style.color='#cfd3dd'">1st Edition</a>
+  <div class="edition-nav-links">
+    <a href="https://csc.pduamamjonga.in" class="edition-nav-link">Home</a>
+    <a href="/multidisciplinary-book-publish/" class="edition-nav-link">Portal</a>
+    <a href="/multidisciplinary-book-publish/edition-1/" class="edition-nav-link">1st Edition</a>
   </div>
 </nav>
 
@@ -524,9 +592,9 @@
         <div class="stat"><b>2026</b><span>Publication Year</span></div>
       </div>
     </div>
-    <div class="masthead-cover" style="perspective: 1000px; display: flex; justify-content: center; align-items: center;">
-      <div class="book-wrap" style="width: 180px; height: 240px; transform: rotateY(-12deg) rotateX(4deg); transform-style: preserve-3d; transition: transform 0.5s; box-shadow: 8px 8px 30px rgba(0,0,0,0.5); border-radius: 2px 8px 8px 2px; overflow: hidden; border-left: 3px solid rgba(255,255,255,0.1);">
-        <img src="/multidisciplinary-book-publish/edition-2/coverImage_en.jpg" alt="Advances in Multidisciplinary Research and Innovation 2nd Edition Cover" style="width: 100%; height: 100%; object-fit: cover;" />
+    <div class="masthead-cover masthead-cover-wrap">
+      <div class="masthead-book-wrap">
+        <img src="coverImage_en.jpg" alt="Advances in Multidisciplinary Research and Innovation 2nd Edition Cover" />
       </div>
     </div>
   </div>
@@ -579,7 +647,7 @@
       <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
       <input type="text" id="searchInput" placeholder="Search by chapter title or author…" autocomplete="off">
     </div>
-    <select id="sectionFilter">
+    <select id="sectionFilter" aria-label="Filter by section">
       <option value="all">All sections</option>
       <option value="sec-0">Artificial Intelligence, Data Science &amp; Intelligent Computing</option>
 <option value="sec-1">Physical Sciences, Materials Science &amp; Nanotechnology</option>

@@ -98,7 +98,6 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
 }
 
 body {
@@ -144,8 +143,8 @@ nav {
 
 nav.scrolled {
   background: rgba(10, 12, 16, 0.85);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
 }
 [data-theme="light"] nav.scrolled {
@@ -789,6 +788,103 @@ footer {
   html { scroll-behavior: auto; }
   .book-stage, .btn-explore, .volume-card { transition: none; }
 }
+
+/* ═══ MOBILE NAV ═══ */
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--text2);
+  width: 38px; height: 38px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  nav {
+    height: 60px;
+    padding: 0 1.25rem;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: var(--ink-soft);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 1rem;
+    z-index: 999;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 0.95rem; }
+
+  .nav-mobile-toggle { display: flex; }
+
+  .nav-brand-title { font-size: 1rem; }
+  .nav-brand-sub { display: none; }
+
+  .hero {
+    min-height: 60vh;
+    padding: 100px 1.25rem 50px;
+  }
+
+  .hero h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .hero p { font-size: 0.9rem; }
+
+  .stats-bar {
+    transform: translateY(-20px);
+    padding: 16px;
+    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 1rem;
+  }
+  .stat-card h3 { font-size: 1.6rem; }
+
+  main { padding: 20px 1rem 60px; }
+
+  .section-title { margin-bottom: 40px; }
+  .section-title h2 { font-size: 1.8rem; }
+
+  .volumes-container { gap: 40px; }
+
+  .volume-card {
+    padding: 1.5rem 1rem;
+    gap: 24px;
+  }
+
+  .book-stage {
+    width: 150px;
+    height: 210px;
+  }
+
+  .book-meta h3 { font-size: 1.3rem; }
+  .book-meta p.desc { font-size: 0.88rem; }
+
+  .pill { font-size: 0.65rem; padding: 5px 10px; }
+
+  .future-section { margin-top: 50px; padding: 1.5rem 1rem; }
+  .future-title { font-size: 1.5rem; }
+  .future-desc { font-size: 0.88rem; }
+  .future-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  .advisory-section { margin-top: 50px; }
+  .advisory-grid { grid-template-columns: 1fr; }
+
+  footer { padding: 40px 1.25rem 24px; }
+
+  .btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    font-size: 0.88rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .future-cta { flex-direction: column; align-items: stretch; }
+}
 </style>
 </head>
 <body>
@@ -801,7 +897,7 @@ footer {
       <span class="nav-brand-sub">PDUAM Amjonga</span>
     </div>
   </div>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="https://csc.pduamamjonga.in">Home</a>
     <a href="edition-1/">1st Edition</a>
     <a href="edition-2/">2nd Edition</a>
@@ -820,6 +916,11 @@ footer {
         <line x1="21" y1="12" x2="23" y2="12"></line>
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+    <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg id="navToggleIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
     </button>
   </div>
@@ -1112,6 +1213,24 @@ window.addEventListener('scroll', () => {
     nav.classList.remove('scrolled');
   }
 });
+
+// 3. Mobile Nav Toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    navToggle.querySelector('svg').innerHTML = open
+      ? '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>'
+      : '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+  });
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+}
 </script>
 </body>
 </html>
