@@ -27,10 +27,10 @@ Here is a simple map of what files are located in this folder:
   * Displays a polite message if a visitor enters a broken link.
 * 📂 **`edition-1/`** (First Edition Folder)
   * Contains all pages and files for the first book published in 2025.
-  * 📘 **[First Edition Guide & Instructions (`edition-1/README.md`)](file:///D:/Codes/csc-pduam/multidisciplinary-book-publish/edition-1/README.md)** (Click here to read)
+  * 📘 **[First Edition Guide & Instructions (`edition-1/README.md`)](edition-1/README.md)** (Click here to read)
 * 📂 **`edition-2/`** (Second Edition Folder)
   * Contains all pages and files for the second book published in 2026.
-  * 📘 **[Second Edition Guide & Instructions (`edition-2/README.md`)](file:///D:/Codes/csc-pduam/multidisciplinary-book-publish/edition-2/README.md)** (Click here to read)
+  * 📘 **[Second Edition Guide & Instructions (`edition-2/README.md`)](edition-2/README.md)** (Click here to read)
 
 ---
 
