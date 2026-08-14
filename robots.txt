@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://csc.pduamamjonga.in/sitemap.xml
+
+# Block crawlers from indexing the raw Vercel deployment URL
+# Canonical is: https://csc.pduamamjonga.in/multidisciplinary-book-publish/
+Host: csc.pduamamjonga.in
