@@ -1,14 +1,27 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [
         {
-          "type": "host",
-          "value": "multidisciplinary-book-publish.vercel.app"
+          "type": "header",
+          "key": "x-forwarded-host",
+          "value": "multidisciplinary-book-publish\\.vercel\\.app"
         }
       ],
-      "destination": "https://csc.pduamamjonga.in/multidisciplinary-book-publish/:path*",
+      "destination": "https://csc.pduamamjonga.in/multidisciplinary-book-publish/",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-forwarded-host",
+          "value": "multidisciplinary-book-publish\\.vercel\\.app"
+        }
+      ],
+      "destination": "https://csc.pduamamjonga.in/multidisciplinary-book-publish/:path+",
       "permanent": true
     }
   ]
