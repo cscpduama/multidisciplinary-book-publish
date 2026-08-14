@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advances in Multidisciplinary Research and Innovation — 2nd Edition</title>
+<meta name="description" content="Contributor index and chapter archive for Advances in Multidisciplinary Research and Innovation, 2nd Edition, published by Deep Science Publishing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #152238;
+    --navy-2: #1d2f4d;
+    --burgundy: #7a2038;
+    --gold: #c6a15b;
+    --gold-dim: #e4d3ac;
+    --paper: #f7f4ee;
+    --card: #ffffff;
+    --ink: #201f1d;
+    --ink-soft: #5b5850;
+    --line: #ddd6c6;
+    --radius: 3px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  .mono { font-family: 'Space Mono', monospace; }
+
+  /* ---------------- Masthead ---------------- */
+  header.masthead {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #f4f1e8;
+    padding: 64px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  header.masthead::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(90deg, rgba(198,161,91,0.06) 0 1px, transparent 1px 84px);
+    pointer-events: none;
+  }
+  .masthead-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .eyebrow .seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    font-size: 10px;
+  }
+  h1.title {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(32px, 5.4vw, 56px);
+    line-height: 1.06;
+    margin: 0 0 14px;
+    max-width: 15ch;
+  }
+  .subtitle {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(16px, 2.1vw, 20px);
+    color: var(--gold-dim);
+    margin: 0 0 32px;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .chip {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    padding: 8px 12px;
+    border: 1px solid rgba(198,161,91,0.45);
+    border-radius: var(--radius);
+    color: #f4f1e8;
+    background: rgba(255,255,255,0.03);
+    white-space: nowrap;
+  }
+  .chip b { color: var(--gold); font-weight: 700; margin-right: 6px; }
+  .chip a { text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  .chip a:hover { color: var(--gold); }
+
+  .stats-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(198,161,91,0.25);
+    flex-wrap: wrap;
+  }
+  .stat b {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    color: #fff;
+    line-height: 1;
+  }
+  .stat span {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  /* ---------------- Record / Ledger ---------------- */
+  .record {
+    max-width: 980px;
+    margin: -1px auto 0;
+    background: var(--paper);
+    padding: 0 24px;
+  }
+  .record-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 40px;
+  }
+  .record-cell {
+    background: var(--card);
+    padding: 22px 22px 20px;
+  }
+  .record-cell .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .record-cell .value {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .record-cell .value strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+  .record-cell ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .record-cell li {
+    margin-bottom: 9px;
+  }
+  .record-cell li:last-child { margin-bottom: 0; }
+  .record-cell .role {
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------------- Search / filter bar ---------------- */
+  .toolbar {
+    max-width: 980px;
+    margin: 48px auto 0;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .toolbar-inner {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .search-box {
+    flex: 1 1 260px;
+    position: relative;
+  }
+  .search-box input {
+    width: 100%;
+    padding: 11px 14px 11px 38px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: var(--radius);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .search-box input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(198,161,91,0.18);
+  }
+  .search-box svg {
+    position: absolute;
+    left: 13px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-soft);
+  }
+  select#sectionFilter {
+    padding: 11px 14px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: var(--radius);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13.5px;
+    color: var(--ink);
+    max-width: 260px;
+  }
+  .result-count {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  /* ---------------- Index / theme sections ---------------- */
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 16px 24px 80px;
+  }
+  .theme { margin-top: 52px; }
+  .theme-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+  .theme-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    background: var(--navy);
+    padding: 3px 8px;
+    border-radius: var(--radius);
+  }
+  .theme-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 21px;
+    margin: 0;
+    color: var(--navy);
+    flex: 1;
+  }
+  .theme-count {
+    font-family: 'Space Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+  }
+
+  .cards { display: flex; flex-direction: column; gap: 10px; }
+
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover {
+    border-left-color: var(--gold);
+    transform: translateX(2px);
+    box-shadow: 0 4px 14px rgba(21,34,56,0.08);
+  }
+  .card-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    color: var(--line);
+    -webkit-text-stroke: 1px var(--navy);
+    color: transparent;
+    min-width: 42px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .card:hover .card-num {
+    -webkit-text-stroke: 1px var(--gold);
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+  }
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 15.5px;
+    line-height: 1.35;
+    color: var(--navy);
+  }
+  .card-authors {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .card-affil {
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .card-go {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--burgundy);
+    flex-shrink: 0;
+    padding-left: 10px;
+    border-left: 1px solid var(--line);
+  }
+  .card-go-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+  }
+
+  .no-results {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--ink-soft);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+  }
+
+  /* ---------------- Footer ---------------- */
+  footer {
+    background: var(--navy);
+    color: #cfd3dd;
+    padding: 40px 24px 28px;
+  }
+  .footer-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+  .footer-inner a {
+    text-decoration: none;
+    color: #cfd3dd;
+    border-bottom: 1px dotted rgba(207,211,221,0.4);
+  }
+  .footer-inner a:hover { color: var(--gold); border-color: var(--gold); }
+  .footer-col b {
+    display: block;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .footer-col div { margin-bottom: 6px; }
+  .footer-bottom {
+    max-width: 980px;
+    margin: 28px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 11.5px;
+    color: #8f95a8;
+    font-family: 'Space Mono', monospace;
+  }
+
+  @media (max-width: 600px) {
+    header.masthead { padding: 44px 18px 32px; }
+    .stats-row { gap: 24px; }
+    .card { padding: 13px 14px; gap: 12px; }
+    .card-num { font-size: 20px; min-width: 30px; }
+    .card-go-label { display: none; }
+    .toolbar { position: static; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .card { transition: none; }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="eyebrow"><span class="seal">CS</span> Department of Computer Science · PDUAM, Amjonga, Goalpara, Assam</div>
+    <h1 class="title">Advances in Multidisciplinary Research and Innovation</h1>
+    <p class="subtitle">Second Edition — International Edited Volume · Deep Science Publishing (USA · UK · India · Turkey)</p>
+    <div class="chips">
+      <span class="chip mono"><b>ISBN</b>978-93-7185-118-3</span>
+      <span class="chip mono"><b>E-ISBN</b>978-93-7185-110-7</span>
+      <span class="chip mono"><b>DOI</b><a href="https://doi.org/10.70593/978-93-7185-110-7" target="_blank" rel="noopener">10.70593/978-93-7185-110-7</a></span>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><b>68</b><span>Chapters</span></div>
+      <div class="stat"><b>128</b><span>Contributors</span></div>
+      <div class="stat"><b>10</b><span>Sections</span></div>
+      <div class="stat"><b>2026</b><span>Publication Year</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="record">
+  <div class="record-grid">
+    <div class="record-cell">
+      <span class="label">Published By</span>
+      <div class="value">
+        <strong>Deep Science Publishing</strong>
+        Global academic publisher — USA · UK · India · Turkey
+      </div>
+    </div>
+    <div class="record-cell">
+      <span class="label">Host Department</span>
+      <div class="value">
+        <strong>Department of Computer Science</strong>
+        Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya (PDUAM)<br>
+        Amjonga, Goalpara, Assam – 783124, India
+      </div>
+    </div>
+    <div class="record-cell">
+      <span class="label">Editors</span>
+      <div class="value">
+        <ul>
+          <li>Dr. Sisir Kumar Rajbongshi</li>
+          <li>Dr. Kshirod Sarmah</li>
+          <li>Dr. Rajdeep Ghosh</li>
+          <li>Dharmeswar Tarang</li>
+        </ul>
+      </div>
+    </div>
+    <div class="record-cell">
+      <span class="label">Advisory Board</span>
+      <div class="value">
+        <ul>
+          <li>Prof. Anjana Kakoti Mahanta <span class="role">— Computer Science, Gauhati University</span></li>
+          <li>Prof. Helen K. Saikia <span class="role">— Mathematics, Gauhati University</span></li>
+          <li>Prof. Jagadish Sarma <span class="role">— Sanskrit, Gauhati University</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      <input type="text" id="searchInput" placeholder="Search by chapter title or author…" autocomplete="off">
+    </div>
+    <select id="sectionFilter">
+      <option value="all">All sections</option>
+      <option value="sec-0">Artificial Intelligence, Data Science &amp; Intelligent Computing</option>
+<option value="sec-1">Physical Sciences, Materials Science &amp; Nanotechnology</option>
+<option value="sec-2">Agriculture, Environmental Studies &amp; Sustainability</option>
+<option value="sec-3">Indian Knowledge Systems &amp; Interdisciplinary Studies</option>
+<option value="sec-4">Mathematical Sciences</option>
+<option value="sec-5">Life Sciences, Agriculture, Biotechnology &amp; Healthcare</option>
+<option value="sec-6">Chemical Sciences</option>
+<option value="sec-7">Commerce, Economics, Management &amp; Public Policy</option>
+<option value="sec-8">Education, Psychology &amp; Social Sciences</option>
+<option value="sec-9">Arts, Literature, Language &amp; Cultural Studies</option>
+    </select>
+    <span class="result-count" id="resultCount">68 chapters</span>
+  </div>
+</div>
+
+<main id="mainIndex">
+
+    <section class="theme" id="sec-0">
+      <div class="theme-head">
+        <span class="theme-tag">§01</span>
+        <h2>Artificial Intelligence, Data Science &amp; Intelligent Computing</h2>
+        <span class="theme-count">24 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter1.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="safety-oriented traffic conflict detection and resolution for autonomous vehicles at unsignalised intersections using carla simulation johirol islam artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">01</span>
+          <span class="card-body">
+            <span class="card-title">Safety-Oriented Traffic Conflict Detection and Resolution for Autonomous Vehicles at Unsignalised Intersections Using CARLA Simulation</span>
+            <span class="card-authors">Johirol Islam</span>
+            <span class="card-affil">School of Information Technology, Yulin University, Yulin City, Shaanxi Province, China</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter2.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="building a field-ready iot smart farming prototype: circuit design, embedded firmware, and multi-season deployment evidence from smallholder farms in pune, maharashtra prof. kavita ramdas sandbhor prof. jyoti p. sarwade prof. rajashri sanjay khadake artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">02</span>
+          <span class="card-body">
+            <span class="card-title">Building a Field-Ready IoT Smart Farming Prototype: Circuit Design, Embedded Firmware, and Multi-Season Deployment Evidence from Smallholder Farms in Pune, Maharashtra</span>
+            <span class="card-authors">Prof. Kavita Ramdas Sandbhor, Prof. Jyoti P. Sarwade, Prof. Rajashri Sanjay Khadake</span>
+            <span class="card-affil">Department of Computer Application / Department of Computer Science, MAEER&#x27;s MIT ACSC, Alandi (D), Pune, Maharashtra, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter3.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="ai-driven portable on-premise iot cloud mini server for secure sensor data management in future classrooms and msme applications ithaya priya b megna k lavanya s venkatesan r artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">03</span>
+          <span class="card-body">
+            <span class="card-title">AI-Driven Portable On-Premise IoT Cloud Mini Server for Secure Sensor Data Management in Future Classrooms and MSME Applications</span>
+            <span class="card-authors">Ithaya Priya B, Megna K, Lavanya S, Venkatesan R</span>
+            <span class="card-affil">Department of Computer Science and Engineering, E.G.S. Pillay Engineering College, Nagapattinam, Tamil Nadu, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter4.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="applicability of vector databases in agentic ai systems -- accelerating and spreading intelligent systems shankar kumar artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">04</span>
+          <span class="card-body">
+            <span class="card-title">Applicability of Vector Databases in Agentic AI Systems -- Accelerating and Spreading Intelligent Systems</span>
+            <span class="card-authors">Shankar Kumar</span>
+            <span class="card-affil">Haspura High School, Haspura, Aurangabad, Bihar, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter5.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="a detailed study of dynamic query optimization techniques shankar kumar artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">05</span>
+          <span class="card-body">
+            <span class="card-title">A Detailed Study of Dynamic Query Optimization Techniques</span>
+            <span class="card-authors">Shankar Kumar</span>
+            <span class="card-affil">Haspura High School, Haspura, Aurangabad, Bihar, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter6.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="quantifying the acoustic distance between assamese and mising: a spectral and computational approach to an indo-aryan--sino-tibetan contact zone parismita gogoi aditya kaushik aryan biswa neelam saikia artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">06</span>
+          <span class="card-body">
+            <span class="card-title">Quantifying the Acoustic Distance Between Assamese and Mising: A Spectral and Computational Approach to an Indo-Aryan--Sino-Tibetan Contact Zone</span>
+            <span class="card-authors">Parismita Gogoi, Aditya Kaushik, Aryan Biswa, Neelam Saikia</span>
+            <span class="card-affil">Department of Electronics and Communication Engineering, Dibrugarh University Institute of Engineering and Technology, Dibrugarh University, Dibrugarh, Assam, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter7.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="a comparative analysis of fft and quantum fourier transform for eeg spectral analysis parnasree chakraborty a. ambika c. tharini artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">07</span>
+          <span class="card-body">
+            <span class="card-title">A Comparative Analysis of FFT and Quantum Fourier Transform for EEG Spectral Analysis</span>
+            <span class="card-authors">Parnasree Chakraborty, A. Ambika, C. Tharini</span>
+            <span class="card-affil">B.S. Abdur Rahman Crescent Institute of Science and Technology, Tamil Nadu, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter8.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="transformer models for hate speech detection in low-resource languages: a systematic review of methods, datasets, and open challenges mrs. punam patel dr. mahendra gawali artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">08</span>
+          <span class="card-body">
+            <span class="card-title">Transformer Models for Hate Speech Detection in Low-Resource Languages: A Systematic Review of Methods, Datasets, and Open Challenges</span>
+            <span class="card-authors">Mrs. Punam Patel, Dr. Mahendra Gawali</span>
+            <span class="card-affil">Department of Computer Science and Engineering, Sanjivani University, Kopargaon, Maharashtra, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter9.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="aortic stenosis: diagnosis, treatment and its impact on healthcare in india purabi choudhury dr. jyotismita talukdar artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">09</span>
+          <span class="card-body">
+            <span class="card-title">Aortic Stenosis: Diagnosis, Treatment and Its Impact on Healthcare in India</span>
+            <span class="card-authors">Purabi Choudhury, Dr. Jyotismita Talukdar</span>
+            <span class="card-affil">Department of Computer Science and Engineering, Tezpur University, Assam, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter10.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="next-generation iomt solutions for real-time diabetes monitoring and decision support sathiyamurthi k venkatesan r sharmi b ithaya priya b artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">10</span>
+          <span class="card-body">
+            <span class="card-title">Next-Generation IoMT Solutions for Real-Time Diabetes Monitoring and Decision Support</span>
+            <span class="card-authors">Sathiyamurthi K, Venkatesan R, Sharmi B, Ithaya Priya B</span>
+            <span class="card-affil">Department of Biomedical Engineering, E.G.S. Pillay Engineering College, Nagapattinam, Tamil Nadu, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter11.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="artificial intelligence in higher education: transforming teaching, learning, and assessment in the digital era prof. rajashri sanjay khadake prof. jyoti p. sarwade prof. preeti b. lokhande kavita ramdas sandbhor artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">11</span>
+          <span class="card-body">
+            <span class="card-title">Artificial Intelligence in Higher Education: Transforming Teaching, Learning, and Assessment in the Digital Era</span>
+            <span class="card-authors">Prof. Rajashri Sanjay Khadake, Prof. Jyoti P. Sarwade, Prof. Preeti B. Lokhande, Kavita Ramdas Sandbhor</span>
+            <span class="card-affil">Department of Computer Application / Department of Computer Science, MAEER&#x27;s MIT Arts, Commerce and Science College, Alandi, Pune, Maharashtra, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter12.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="ai-driven health monitoring in pig farming: a technological perspective from northeast india dr. angshumala talukdar mr. ullash roy artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">12</span>
+          <span class="card-body">
+            <span class="card-title">AI-Driven Health Monitoring in Pig Farming: A Technological Perspective from Northeast India</span>
+            <span class="card-authors">Dr. Angshumala Talukdar, Mr. Ullash Roy</span>
+            <span class="card-affil">Assistant Professor, Assam down town University, Assam, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter13.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="deep learning frameworks for text classification in low-resource languages anupam kumar nath artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">13</span>
+          <span class="card-body">
+            <span class="card-title">Deep Learning Frameworks for Text Classification in Low-Resource Languages</span>
+            <span class="card-authors">Anupam Kumar Nath</span>
+            <span class="card-affil">M.Sc. Computer Science, Gauhati University, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter14.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="an explainable employee attrition prediction framework using feature selection and gradient-boosted trees arpan tewary dr. abhishek bandyopadhyay arup kumar chakraborty ashutosh kumar singh artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">14</span>
+          <span class="card-body">
+            <span class="card-title">An Explainable Employee Attrition Prediction Framework Using Feature Selection and Gradient-Boosted Trees</span>
+            <span class="card-authors">Arpan Tewary, Dr. Abhishek Bandyopadhyay, Arup Kumar Chakraborty, Ashutosh Kumar Singh</span>
+            <span class="card-affil">State Aided College Teacher (Category-I), Department of Computer Science, Banwarilal Bhalotia College, Asansol, West Bengal, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter15.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="5g/6g-enabled edge intelligence arun kumar rathore sachin lakhera shweta gupta artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">15</span>
+          <span class="card-body">
+            <span class="card-title">5G/6G-Enabled Edge Intelligence</span>
+            <span class="card-authors">Arun Kumar Rathore, Sachin Lakhera, Shweta Gupta</span>
+            <span class="card-affil">J.B. Institute of Technology, Dehradun, Uttarakhand, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter16.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="machine learning-based prediction of muga cocoon drying: comparative study of convection and infrared methods dr. chayanika bhagabati artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">16</span>
+          <span class="card-body">
+            <span class="card-title">Machine Learning-Based Prediction of Muga Cocoon Drying: Comparative Study of Convection and Infrared Methods</span>
+            <span class="card-authors">Dr. Chayanika Bhagabati</span>
+            <span class="card-affil">IIMT University, Greater Noida, Uttar Pradesh, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter17.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="a comprehensive review of explainable artificial intelligence in breast cancer detection dr. manjula kalita artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">17</span>
+          <span class="card-body">
+            <span class="card-title">A Comprehensive Review of Explainable Artificial Intelligence in Breast Cancer Detection</span>
+            <span class="card-authors">Dr. Manjula Kalita</span>
+            <span class="card-affil">Assistant Professor, Girijananda Chowdhury University, Azara, Guwahati, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter18.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="public legal education platform indibor goswami daisy sharmah artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">18</span>
+          <span class="card-body">
+            <span class="card-title">Public Legal Education Platform</span>
+            <span class="card-authors">Indibor Goswami, Daisy Sharmah</span>
+            <span class="card-affil">MCA, Department of Computer Science, University of Science &amp; Technology Meghalaya, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter19.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="compatibility of artificial intelligence in field research: a sustainable development perspective: a conceptual and scoping review dr. tanmay dhar artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">19</span>
+          <span class="card-body">
+            <span class="card-title">Compatibility of Artificial Intelligence in Field Research: A Sustainable Development Perspective: A Conceptual and Scoping Review</span>
+            <span class="card-authors">Dr. Tanmay Dhar</span>
+            <span class="card-affil">Uttaranchal University, Dehradun, Uttarakhand, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter20.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="self-driving cars and fuzzy logic dr. bimal kumar kalita artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">20</span>
+          <span class="card-body">
+            <span class="card-title">Self-Driving Cars and Fuzzy Logic</span>
+            <span class="card-authors">Dr. Bimal Kumar Kalita</span>
+            <span class="card-affil">Assistant Professor (Selection), Department of Computer Application, Assam Don Bosco University, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter21.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="next- generation net metering data centers: integrating blockchain, cloud computing and artificial intelligence godfrey murairidzi gotora blessed ziyambe eunice mfula godfrey benjamin zulu artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">21</span>
+          <span class="card-body">
+            <span class="card-title">Next- Generation Net Metering Data Centers: Integrating Blockchain, Cloud Computing and Artificial Intelligence</span>
+            <span class="card-authors">Godfrey Murairidzi Gotora, Blessed Ziyambe, Eunice Mfula, Godfrey Benjamin Zulu</span>
+            <span class="card-affil">School of Engineering and ICT, Arrupe Jesuit University, Zimbabwe · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter22.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="deception at a cost: reinforcement learning for resilient infrastructure dr. tapashi kashyap das artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">22</span>
+          <span class="card-body">
+            <span class="card-title">Deception at a Cost: Reinforcement Learning for Resilient Infrastructure</span>
+            <span class="card-authors">Dr. Tapashi Kashyap Das</span>
+            <span class="card-affil">Assistant Professor, Discipline of Computer Science, Krishna Kanta Handiqui State Open University (KKHSOU), Guwahati, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter23.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="generative artificial intelligence in higher education: opportunities, risks, and governance mrs. jyoti sarwade mrs. anita atiwadkar prof. rajashri sanjay khadake prof. kavita ramdas sandbhor artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">23</span>
+          <span class="card-body">
+            <span class="card-title">Generative Artificial Intelligence in Higher Education: Opportunities, Risks, and Governance</span>
+            <span class="card-authors">Mrs. Jyoti Sarwade, Mrs. Anita Atiwadkar, Prof. Rajashri Sanjay Khadake, Prof. Kavita Ramdas Sandbhor</span>
+            <span class="card-affil">Department of Computer Application / Department of Computer Science, MAEER&#x27;s MIT ACSC, Alandi (D), Pune, Maharashtra, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter24.pdf" target="_blank" rel="noopener"
+           data-section="sec-0" data-search="from application to belonging: a human-in-the-loop framework for ai-assisted advising in indian student mobility nikunj doshi artificial intelligence, data science &amp; intelligent computing">
+          <span class="card-num">24</span>
+          <span class="card-body">
+            <span class="card-title">From Application to Belonging: A Human-in-the-Loop Framework for AI-Assisted Advising in Indian Student Mobility</span>
+            <span class="card-authors">Nikunj Doshi</span>
+            <span class="card-affil">Northeastern University, Boston, Massachusetts, USA</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="theme" id="sec-1">
+      <div class="theme-head">
+        <span class="theme-tag">§02</span>
+        <h2>Physical Sciences, Materials Science &amp; Nanotechnology</h2>
+        <span class="theme-count">5 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter25.pdf" target="_blank" rel="noopener"
+           data-section="sec-1" data-search="nano-innovations for a green tomorrow: physics-driven materials and devices anil kumar pramod kumar physical sciences, materials science &amp; nanotechnology">
+          <span class="card-num">25</span>
+          <span class="card-body">
+            <span class="card-title">Nano-Innovations for a Green Tomorrow: Physics-Driven Materials and Devices</span>
+            <span class="card-authors">Anil Kumar, Pramod Kumar</span>
+            <span class="card-affil">Department of Physics, Brahmanand College, Kanpur, Uttar Pradesh, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter26.pdf" target="_blank" rel="noopener"
+           data-section="sec-1" data-search="advanced electronic materials and emerging device technologies bappi mallik physical sciences, materials science &amp; nanotechnology">
+          <span class="card-num">26</span>
+          <span class="card-body">
+            <span class="card-title">Advanced Electronic Materials and Emerging Device Technologies</span>
+            <span class="card-authors">Bappi Mallik</span>
+            <span class="card-affil">Department of Physics, Central Institute of Technology Kokrajhar, Kokrajhar, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter27.pdf" target="_blank" rel="noopener"
+           data-section="sec-1" data-search="recent advances in rare-earth free permanent magnet materials for future device applications d. rajbanshi n. deka physical sciences, materials science &amp; nanotechnology">
+          <span class="card-num">27</span>
+          <span class="card-body">
+            <span class="card-title">Recent Advances in Rare-Earth Free Permanent Magnet Materials for Future Device Applications</span>
+            <span class="card-authors">D. Rajbanshi, N. Deka</span>
+            <span class="card-affil">Department of Physics, Central Institute of Technology Kokrajhar, Kokrajhar, Assam, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter28.pdf" target="_blank" rel="noopener"
+           data-section="sec-1" data-search="rare-earth iron garnets (r₃fe₅o₁₂): structure, synthesis, properties, and multifunctional technological applications mahanta chouhan b. n. parida physical sciences, materials science &amp; nanotechnology">
+          <span class="card-num">28</span>
+          <span class="card-body">
+            <span class="card-title">Rare-Earth Iron Garnets (R₃Fe₅O₁₂): Structure, Synthesis, Properties, and Multifunctional Technological Applications</span>
+            <span class="card-authors">Mahanta Chouhan, B. N. Parida</span>
+            <span class="card-affil">Department of Physics, Basugaon College, BTR, Assam, India; Department of Physics, Central Institute of Technology Kokrajhar (Deemed to be University), BTR, Assam, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter29.pdf" target="_blank" rel="noopener"
+           data-section="sec-1" data-search="optical and electrical properties of nanostructured cds-ps: p-si heterostructure dr. samarjit sarmah physical sciences, materials science &amp; nanotechnology">
+          <span class="card-num">29</span>
+          <span class="card-body">
+            <span class="card-title">Optical and Electrical Properties of Nanostructured CdS-PS: p-Si Heterostructure</span>
+            <span class="card-authors">Dr. Samarjit Sarmah</span>
+            <span class="card-affil">Assistant Professor (Physics), Department of Physics, Pub Kamrup College, Baihata Chariali, Kamrup, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="theme" id="sec-2">
+      <div class="theme-head">
+        <span class="theme-tag">§03</span>
+        <h2>Agriculture, Environmental Studies &amp; Sustainability</h2>
+        <span class="theme-count">2 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter30.pdf" target="_blank" rel="noopener"
+           data-section="sec-2" data-search="baranaja: multicropping indigenous system of uttarakhand himalaya as a model of sustainable agriculture and food security jitendra kumar lohani arti joshi agriculture, environmental studies &amp; sustainability">
+          <span class="card-num">30</span>
+          <span class="card-body">
+            <span class="card-title">Baranaja: Multicropping Indigenous System of Uttarakhand Himalaya as a Model of Sustainable Agriculture and Food Security</span>
+            <span class="card-authors">Jitendra Kumar Lohani, Arti Joshi</span>
+            <span class="card-affil">Assistant Professor, D.S.B. Campus, Kumaun University, Nainital, Uttarakhand, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter31.pdf" target="_blank" rel="noopener"
+           data-section="sec-2" data-search="a review on feeding ecology, natural fodder resource management, habitat and conservation in the eastern himalaya sangeeta deka agriculture, environmental studies &amp; sustainability">
+          <span class="card-num">31</span>
+          <span class="card-body">
+            <span class="card-title">A Review on Feeding Ecology, Natural Fodder Resource Management, Habitat and Conservation in the Eastern Himalaya</span>
+            <span class="card-authors">Sangeeta Deka</span>
+            <span class="card-affil">Assistant Professor, Department of Botany, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya, Amjonga, Goalpara, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="theme" id="sec-3">
+      <div class="theme-head">
+        <span class="theme-tag">§04</span>
+        <h2>Indian Knowledge Systems &amp; Interdisciplinary Studies</h2>
+        <span class="theme-count">2 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter32.pdf" target="_blank" rel="noopener"
+           data-section="sec-3" data-search="the renaissance of indigeneity: integrating iks into nep 2020 leeladhar chouhan sanghita chakravarty indian knowledge systems &amp; interdisciplinary studies">
+          <span class="card-num">32</span>
+          <span class="card-body">
+            <span class="card-title">The Renaissance of Indigeneity: Integrating IKS into NEP 2020</span>
+            <span class="card-authors">Leeladhar Chouhan, Sanghita Chakravarty</span>
+            <span class="card-affil">Department of Physics, Kokrajhar University, Kokrajhar, Assam, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter33.pdf" target="_blank" rel="noopener"
+           data-section="sec-3" data-search="digital resource creation for bishnupriya manipuri: corpus development and computational perspectives for a low-resource language dr. rita sinha indian knowledge systems &amp; interdisciplinary studies">
+          <span class="card-num">33</span>
+          <span class="card-body">
+            <span class="card-title">Digital Resource Creation for Bishnupriya Manipuri: Corpus Development and Computational Perspectives for a Low-Resource Language</span>
+            <span class="card-authors">Dr. Rita Sinha</span>
+            <span class="card-affil">Assistant Professor, Department of Computer Science, Lalit Chandra Bharali College, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="theme" id="sec-4">
+      <div class="theme-head">
+        <span class="theme-tag">§05</span>
+        <h2>Mathematical Sciences</h2>
+        <span class="theme-count">9 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter34.pdf" target="_blank" rel="noopener"
+           data-section="sec-4" data-search="an in-depth examination of the indian mathematical knowledge system a. y. shaikh mathematical sciences">
+          <span class="card-num">34</span>
+          <span class="card-body">
+            <span class="card-title">An In-depth Examination of the Indian Mathematical Knowledge System</span>
+            <span class="card-authors">A. Y. Shaikh</span>
+            <span class="card-affil">Department of Mathematics, Indira Gandhi Mahavidyalaya, Ralegaon, Maharashtra, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter35.pdf" target="_blank" rel="noopener"
+           data-section="sec-4" data-search="predictive modelling of personal loan acceptance: a logistic regression-based variable importance study argha nath bhattacharyya sayantika paul mathematical sciences">
+          <span class="card-num">35</span>
+          <span class="card-body">
+            <span class="card-title">Predictive Modelling of Personal Loan Acceptance: A Logistic Regression-Based Variable Importance Study</span>
+            <span class="card-authors">Argha Nath Bhattacharyya, Sayantika Paul</span>
+            <span class="card-affil">Assistant Professor, Department of Statistics, Sister Nivedita University, Kolkata, West Bengal, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter36.pdf" target="_blank" rel="noopener"
+           data-section="sec-4" data-search="nonlinear kinetic alfvén solitary waves in dusty plasmas with charge-varying dust grains and non-extensive electrons mamani choudhury mathematical sciences">
+          <span class="card-num">36</span>
+          <span class="card-body">
+            <span class="card-title">Nonlinear Kinetic Alfvén Solitary Waves in Dusty Plasmas with Charge-Varying Dust Grains and Non-Extensive Electrons</span>
+            <span class="card-authors">Mamani Choudhury</span>
+            <span class="card-affil">Department of Mathematics, Handique Girls&#x27; College, Guwahati, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter37.pdf" target="_blank" rel="noopener"
+           data-section="sec-4" data-search="degree centrality in network analysis: theory, variants and applications munmi saikia mathematical sciences">
+          <span class="card-num">37</span>
+          <span class="card-body">
+            <span class="card-title">Degree Centrality in Network Analysis: Theory, Variants and Applications</span>
+            <span class="card-authors">Munmi Saikia</span>
+            <span class="card-affil">Department of Mathematics, Patharkandi College, Patharkandi, Sribhumi, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter38.pdf" target="_blank" rel="noopener"
+           data-section="sec-4" data-search="use of ai-enabled ict tools in mathematics teaching pramit rej mathematical sciences">
+          <span class="card-num">38</span>
+          <span class="card-body">
+            <span class="card-title">Use of AI-Enabled ICT Tools in Mathematics Teaching</span>
+            <span class="card-authors">Pramit Rej</span>
+            <span class="card-affil">Department of Mathematics, Sarat Centenary College, Dhaniakhali, Hooghly, West Bengal, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter39.pdf" target="_blank" rel="noopener"
+           data-section="sec-4" data-search="linear algebra: essential for machine learning and optimization raj kumar mathematical sciences">
+          <span class="card-num">39</span>
+          <span class="card-body">
+            <span class="card-title">Linear Algebra: Essential for Machine Learning and Optimization</span>
+            <span class="card-authors">Raj Kumar</span>
+            <span class="card-affil">Secretary, St. Ignatius School, Aurangabad, Bihar, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter40.pdf" target="_blank" rel="noopener"
+           data-section="sec-4" data-search="estimation of the growth of iterated entire functions ratan kumar dutta mathematical sciences">
+          <span class="card-num">40</span>
+          <span class="card-body">
+            <span class="card-title">Estimation of the Growth of Iterated Entire Functions</span>
+            <span class="card-authors">Ratan Kumar Dutta</span>
+            <span class="card-affil">Department of Mathematics, Rishi Bankim Chandra College, Naihati, West Bengal, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter41.pdf" target="_blank" rel="noopener"
+           data-section="sec-4" data-search="clifford algebra and hypercomplex numbers in application: foundations, computational methods, and emerging technologies santosh kumar mathematical sciences">
+          <span class="card-num">41</span>
+          <span class="card-body">
+            <span class="card-title">Clifford Algebra and Hypercomplex Numbers in Application: Foundations, Computational Methods, and Emerging Technologies</span>
+            <span class="card-authors">Santosh Kumar</span>
+            <span class="card-affil">Department of Mathematics, Deo Chand College, Hajipur (Vaishali), B.R.A. Bihar University, Muzaffarpur, Bihar, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter42.pdf" target="_blank" rel="noopener"
+           data-section="sec-4" data-search="on the structure and properties of g-rings md shahidul islam khan mathematical sciences">
+          <span class="card-num">42</span>
+          <span class="card-body">
+            <span class="card-title">On the Structure and Properties of G-rings</span>
+            <span class="card-authors">Md Shahidul Islam Khan</span>
+            <span class="card-affil">Assistant Professor, Department of Mathematics, PDUAM, Amjonga, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="theme" id="sec-5">
+      <div class="theme-head">
+        <span class="theme-tag">§06</span>
+        <h2>Life Sciences, Agriculture, Biotechnology &amp; Healthcare</h2>
+        <span class="theme-count">9 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter43.pdf" target="_blank" rel="noopener"
+           data-section="sec-5" data-search="emerging frontiers in horticultural science: integrated approaches from biotechnology to precision agriculture bambang hariyanto riry prihatini life sciences, agriculture, biotechnology &amp; healthcare">
+          <span class="card-num">43</span>
+          <span class="card-body">
+            <span class="card-title">Emerging Frontiers in Horticultural Science: Integrated Approaches from Biotechnology to Precision Agriculture</span>
+            <span class="card-authors">Bambang Hariyanto, Riry Prihatini</span>
+            <span class="card-affil">Research Center for Horticulture, National Research and Innovation Agency, Cibinong, West Java, Indonesia · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter44.pdf" target="_blank" rel="noopener"
+           data-section="sec-5" data-search="in silico evaluation of l-theanine, a component of tea, as a potential mao-b inhibitor for dopamine preservation in parkinson&#x27;s disease satarupa deb venkateshwarla rama raju nisat firduse dipta rajkumari life sciences, agriculture, biotechnology &amp; healthcare">
+          <span class="card-num">44</span>
+          <span class="card-body">
+            <span class="card-title">In Silico Evaluation of L-theanine, a Component of Tea, as a Potential MAO-B Inhibitor for Dopamine Preservation in Parkinson&#x27;s Disease</span>
+            <span class="card-authors">Satarupa Deb, Venkateshwarla Rama Raju, Nisat Firduse, Dipta Rajkumari</span>
+            <span class="card-affil">Department of Zoology, Patharkandi College, Patharkandi, Sribhumi, Assam, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter45.pdf" target="_blank" rel="noopener"
+           data-section="sec-5" data-search="women empowerment through sericulture: a socio-economic perspective with special reference to assam subhadeep seal sayantika dey life sciences, agriculture, biotechnology &amp; healthcare">
+          <span class="card-num">45</span>
+          <span class="card-body">
+            <span class="card-title">Women Empowerment through Sericulture: A Socio-economic Perspective with Special Reference to Assam</span>
+            <span class="card-authors">Subhadeep Seal, Sayantika Dey</span>
+            <span class="card-affil">Department of Zoology, Cotton University, Assam, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter46.pdf" target="_blank" rel="noopener"
+           data-section="sec-5" data-search="the emerging multidisciplinary trends in dermatoglyphics: the science of palmar and plantar configurations sijo jacob life sciences, agriculture, biotechnology &amp; healthcare">
+          <span class="card-num">46</span>
+          <span class="card-body">
+            <span class="card-title">The Emerging Multidisciplinary Trends in Dermatoglyphics: The Science of Palmar and Plantar Configurations</span>
+            <span class="card-authors">Sijo Jacob</span>
+            <span class="card-affil">Research Scholar, Department of Zoology, Mar Thoma College, Tiruvalla, Pathanamthitta, Kerala, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter47.pdf" target="_blank" rel="noopener"
+           data-section="sec-5" data-search="application of machine learning in improved diagnosis, treatment and disease monitoring of people living with hiv (plwh) sushanta kumar barik bharat r. naiknaware archana panche sanjay n. harke prapti deshmukh keshar kunja mohanty shripad a. patil srikanth prasad tripathy life sciences, agriculture, biotechnology &amp; healthcare">
+          <span class="card-num">47</span>
+          <span class="card-body">
+            <span class="card-title">Application of Machine Learning in Improved Diagnosis, Treatment and Disease Monitoring of People Living with HIV (PLWH)</span>
+            <span class="card-authors">Sushanta Kumar Barik, Bharat R. Naiknaware, Archana Panche, Sanjay N. Harke, Prapti Deshmukh, Keshar Kunja Mohanty, Shripad A. Patil, Srikanth Prasad Tripathy</span>
+            <span class="card-affil">Institute of Biosciences and Technology, MGM University, Chhatrapati Sambhajinagar, Maharashtra, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter48.pdf" target="_blank" rel="noopener"
+           data-section="sec-5" data-search="pharmacogenomics and personalized medicine: the future of precision therapeutics dr. syeda nishat fathima life sciences, agriculture, biotechnology &amp; healthcare">
+          <span class="card-num">48</span>
+          <span class="card-body">
+            <span class="card-title">Pharmacogenomics and Personalized Medicine: The Future of Precision Therapeutics</span>
+            <span class="card-authors">Dr. Syeda Nishat Fathima</span>
+            <span class="card-affil">Associate Professor, Department of Pharmacology, Jayamukhi College of Pharmacy, Warangal, Telangana, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter49.pdf" target="_blank" rel="noopener"
+           data-section="sec-5" data-search="green nanofertilizer: sustainable nanotechnology for precision plant nutrition kistu singh nongthombam monica sanabam ningombam bijaya devi life sciences, agriculture, biotechnology &amp; healthcare">
+          <span class="card-num">49</span>
+          <span class="card-body">
+            <span class="card-title">Green Nanofertilizer: Sustainable Nanotechnology for Precision Plant Nutrition</span>
+            <span class="card-authors">Kistu Singh Nongthombam, Monica Sanabam, Ningombam Bijaya Devi</span>
+            <span class="card-affil">Department of Botany, Kumbi College, Kumbi, Manipur, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter50.pdf" target="_blank" rel="noopener"
+           data-section="sec-5" data-search="marine bioprospecting and sustainable utilisation for the development of novel cancer therapeutics anu swedha ananthan sumithra. b kiruthika s life sciences, agriculture, biotechnology &amp; healthcare">
+          <span class="card-num">50</span>
+          <span class="card-body">
+            <span class="card-title">Marine Bioprospecting and Sustainable Utilisation for the Development of Novel Cancer Therapeutics</span>
+            <span class="card-authors">Anu Swedha Ananthan, Sumithra. B, Kiruthika S</span>
+            <span class="card-affil">Associate Professor, Department of Microbiology, Justice Basheer Ahmed Sayeed College for Women (Autonomous), Chennai-600018 · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter51.pdf" target="_blank" rel="noopener"
+           data-section="sec-5" data-search="from urine analysis to precision medicine: the role of artificial intelligence in urinary tract infection diagnosis anu swedha ananthan s. sasikala life sciences, agriculture, biotechnology &amp; healthcare">
+          <span class="card-num">51</span>
+          <span class="card-body">
+            <span class="card-title">From Urine Analysis to Precision Medicine: The Role of Artificial Intelligence in Urinary Tract Infection Diagnosis</span>
+            <span class="card-authors">Anu Swedha Ananthan, S. Sasikala</span>
+            <span class="card-affil">Research Scholar, Department of Microbiology and Biotechnology, Presidency College (Autonomous), Chennai-600005 &amp; Associate Professor, Department of Microbiology, Justice Basheer Ahmed Sayeed College for Women (Autonomous), Chennai-600018 · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="theme" id="sec-6">
+      <div class="theme-head">
+        <span class="theme-tag">§07</span>
+        <h2>Chemical Sciences</h2>
+        <span class="theme-count">2 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter52.pdf" target="_blank" rel="noopener"
+           data-section="sec-6" data-search="life cycle assessment of green chemical processes: a critical review of methods, evidence, and decision practice rizia jahan riza chemical sciences">
+          <span class="card-num">52</span>
+          <span class="card-body">
+            <span class="card-title">Life Cycle Assessment of Green Chemical Processes: A Critical Review of Methods, Evidence, and Decision Practice</span>
+            <span class="card-authors">Rizia Jahan Riza</span>
+            <span class="card-affil">School of Chemical Engineering, Yulin University, Yulin, Shaanxi, China</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter53.pdf" target="_blank" rel="noopener"
+           data-section="sec-6" data-search="current landscape of artificial intelligence (ai) and machine learning (ml) in chemistry dr. bhaskar sarmah chemical sciences">
+          <span class="card-num">53</span>
+          <span class="card-body">
+            <span class="card-title">Current Landscape of Artificial Intelligence (AI) and Machine Learning (ML) in Chemistry</span>
+            <span class="card-authors">Dr. Bhaskar Sarmah</span>
+            <span class="card-affil">Asst. Professor of Chemistry, Department of Basic Science &amp; Humanities, Assam Skill University, Bidya Nagar, Mangaldoi, Assam 784125</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="theme" id="sec-7">
+      <div class="theme-head">
+        <span class="theme-tag">§08</span>
+        <h2>Commerce, Economics, Management &amp; Public Policy</h2>
+        <span class="theme-count">3 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter54.pdf" target="_blank" rel="noopener"
+           data-section="sec-7" data-search="financial inclusion, financial sustainability, and india&#x27;s journey towards viksit bharat 2047 dr. nagaraju l. g. h. s. prakasha priya n commerce, economics, management &amp; public policy">
+          <span class="card-num">54</span>
+          <span class="card-body">
+            <span class="card-title">Financial Inclusion, Financial Sustainability, and India&#x27;s Journey Towards Viksit Bharat 2047</span>
+            <span class="card-authors">Dr. Nagaraju L. G., H. S. Prakasha, Priya N</span>
+            <span class="card-affil">Assistant Professor and IQAC Vertical Head, School of Management Studies, REVA University, Bengaluru, Karnataka, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter55.pdf" target="_blank" rel="noopener"
+           data-section="sec-7" data-search="socio-economic impacts of lpg adoption among rural women in bihar: a study under pradhan mantri ujjwala yojana (pmuy) abhinaw kumar commerce, economics, management &amp; public policy">
+          <span class="card-num">55</span>
+          <span class="card-body">
+            <span class="card-title">Socio-Economic Impacts of LPG Adoption Among Rural Women in Bihar: A Study Under Pradhan Mantri Ujjwala Yojana (PMUY)</span>
+            <span class="card-authors">Abhinaw Kumar</span>
+            <span class="card-affil">Research Scholar, Lovely Professional University, Punjab, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter56.pdf" target="_blank" rel="noopener"
+           data-section="sec-7" data-search="attention as a scarce resource: exploring the determinants of attention consumption among gen-z harijit bhakat sagartirtha chakraborty commerce, economics, management &amp; public policy">
+          <span class="card-num">56</span>
+          <span class="card-body">
+            <span class="card-title">Attention as a Scarce Resource: Exploring the Determinants of Attention Consumption among Gen-Z</span>
+            <span class="card-authors">Harijit Bhakat, Sagartirtha Chakraborty</span>
+            <span class="card-affil">Undergraduate Scholar, Department of Economics, Cotton University, Assam, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="theme" id="sec-8">
+      <div class="theme-head">
+        <span class="theme-tag">§09</span>
+        <h2>Education, Psychology &amp; Social Sciences</h2>
+        <span class="theme-count">6 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter57.pdf" target="_blank" rel="noopener"
+           data-section="sec-8" data-search="transforming higher education through artificial intelligence: a study of students&#x27; perceptions and learning experiences dr. dinesh sambhaji gore mrs. priyanka dattatraya newase education, psychology &amp; social sciences">
+          <span class="card-num">57</span>
+          <span class="card-body">
+            <span class="card-title">Transforming Higher Education Through Artificial Intelligence: A Study of Students&#x27; Perceptions and Learning Experiences</span>
+            <span class="card-authors">Dr. Dinesh Sambhaji Gore, Mrs. Priyanka Dattatraya Newase</span>
+            <span class="card-affil">Assistant Professor, Department of Commerce, Tuljaram Chaturchand College of Arts, Science and Commerce (Empowered Autonomous), Baramati, Maharashtra, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter58.pdf" target="_blank" rel="noopener"
+           data-section="sec-8" data-search="knowledge, attitude and practices of primigravida mothers regarding antenatal care at palakkad district of kerala state dr. k. parthasarathy education, psychology &amp; social sciences">
+          <span class="card-num">58</span>
+          <span class="card-body">
+            <span class="card-title">Knowledge, Attitude and Practices of Primigravida Mothers Regarding Antenatal Care at Palakkad District of Kerala State</span>
+            <span class="card-authors">Dr. K. Parthasarathy</span>
+            <span class="card-affil">Associate Professor &amp; Head, Department of Social Work, Nehru Arts and Science College (Autonomous), Coimbatore, Tamil Nadu, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter59.pdf" target="_blank" rel="noopener"
+           data-section="sec-8" data-search="mental health of adolescents in relation to home environment, emotional intelligence and self-concept in thodupuzha taluk, kerala state dr. k. parthasarathy education, psychology &amp; social sciences">
+          <span class="card-num">59</span>
+          <span class="card-body">
+            <span class="card-title">Mental Health of Adolescents in Relation to Home Environment, Emotional Intelligence and Self-Concept in Thodupuzha Taluk, Kerala State</span>
+            <span class="card-authors">Dr. K. Parthasarathy</span>
+            <span class="card-affil">Associate Professor &amp; Head, Department of Social Work, Nehru Arts and Science College (Autonomous), Coimbatore, Tamil Nadu, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter60.pdf" target="_blank" rel="noopener"
+           data-section="sec-8" data-search="empowering the future: assessing the impact of students&#x27; contributions on modern society dr. reynaldo v. moral education, psychology &amp; social sciences">
+          <span class="card-num">60</span>
+          <span class="card-body">
+            <span class="card-title">Empowering the Future: Assessing the Impact of Students&#x27; Contributions on Modern Society</span>
+            <span class="card-authors">Dr. Reynaldo V. Moral</span>
+            <span class="card-affil">College of Teacher Education, Cebu Normal University, Osmeña Boulevard, Cebu City, Philippines</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter61.pdf" target="_blank" rel="noopener"
+           data-section="sec-8" data-search="digital learning and fomo among adolescents: challenges to mental well-being madhusmita deka education, psychology &amp; social sciences">
+          <span class="card-num">61</span>
+          <span class="card-body">
+            <span class="card-title">Digital Learning and FOMO Among Adolescents: Challenges to Mental Well-Being</span>
+            <span class="card-authors">Madhusmita Deka</span>
+            <span class="card-affil">M.A. in Education, Tezpur University, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter62.pdf" target="_blank" rel="noopener"
+           data-section="sec-8" data-search="reimagining mental healthcare through artificial intelligence: a psychological perspective on innovation, ethics, and human-centered care upasana mazumder education, psychology &amp; social sciences">
+          <span class="card-num">62</span>
+          <span class="card-body">
+            <span class="card-title">Reimagining Mental Healthcare Through Artificial Intelligence: A Psychological Perspective on Innovation, Ethics, and Human-Centered Care</span>
+            <span class="card-authors">Upasana Mazumder</span>
+            <span class="card-affil">Postgraduate Student, Department of Psychiatry, Kasturba Medical College, Mangalore, Manipal Academy of Higher Education, Karnataka, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="theme" id="sec-9">
+      <div class="theme-head">
+        <span class="theme-tag">§10</span>
+        <h2>Arts, Literature, Language &amp; Cultural Studies</h2>
+        <span class="theme-count">6 chapters</span>
+      </div>
+      <div class="cards">
+        
+        <a class="card" href="chapters/chapter63.pdf" target="_blank" rel="noopener"
+           data-section="sec-9" data-search="women, nature, and ecological ethics in kalidasa&#x27;s literary imagination: an ecofeminist study aishwarya singh arts, literature, language &amp; cultural studies">
+          <span class="card-num">63</span>
+          <span class="card-body">
+            <span class="card-title">Women, Nature, and Ecological Ethics in Kalidasa&#x27;s Literary Imagination: An Ecofeminist Study</span>
+            <span class="card-authors">Aishwarya Singh</span>
+            <span class="card-affil">Research Scholar, Maharaja Agrasen Himalayan Garhwal University, Pauri Garhwal, Uttarakhand, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter64.pdf" target="_blank" rel="noopener"
+           data-section="sec-9" data-search="gender representation in film and media: interrogating the gaze, the stereotype, and the possibility of change dr. debashree chakraborty arts, literature, language &amp; cultural studies">
+          <span class="card-num">64</span>
+          <span class="card-body">
+            <span class="card-title">Gender Representation in Film and Media: Interrogating the Gaze, the Stereotype, and the Possibility of Change</span>
+            <span class="card-authors">Dr. Debashree Chakraborty</span>
+            <span class="card-affil">Assistant Professor of English, Gargi Memorial Institute of Technology, Baruipur, West Bengal, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter65.pdf" target="_blank" rel="noopener"
+           data-section="sec-9" data-search="dialect, identity, and authenticity in contemporary telugu cinema: a sociolinguistic analysis dr. p. gopikrishna dr. v. s. sai tharun dr. k. shanmugapriya arts, literature, language &amp; cultural studies">
+          <span class="card-num">65</span>
+          <span class="card-body">
+            <span class="card-title">Dialect, Identity, and Authenticity in Contemporary Telugu Cinema: A Sociolinguistic Analysis</span>
+            <span class="card-authors">Dr. P. Gopikrishna, Dr. V. S. Sai Tharun, Dr. K. Shanmugapriya</span>
+            <span class="card-affil">Assistant Professor, Department of English, Marri Laxman Reddy Institute of Technology and Management, Hyderabad, Telangana, India · et al.</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter66.pdf" target="_blank" rel="noopener"
+           data-section="sec-9" data-search="behavioral psychology and operant conditioning in george orwell&#x27;s animal farm: a psychological analysis dr. u. pushpalatha arts, literature, language &amp; cultural studies">
+          <span class="card-num">66</span>
+          <span class="card-body">
+            <span class="card-title">Behavioral Psychology and Operant Conditioning in George Orwell&#x27;s Animal Farm: A Psychological Analysis</span>
+            <span class="card-authors">Dr. U. Pushpalatha</span>
+            <span class="card-affil">Assistant Professor (Selection Grade), KCG College of Technology, Chennai, Tamil Nadu, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter67.pdf" target="_blank" rel="noopener"
+           data-section="sec-9" data-search="traditional assamese food culture and environmental sustainability: an analytical study of bihu songs dr. mala hazarika arts, literature, language &amp; cultural studies">
+          <span class="card-num">67</span>
+          <span class="card-body">
+            <span class="card-title">Traditional Assamese Food Culture and Environmental Sustainability: An Analytical Study of Bihu Songs</span>
+            <span class="card-authors">Dr. Mala Hazarika</span>
+            <span class="card-affil">Assistant Professor, Department of Assamese, Amguri College, Sivasagar, Assam, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+        <a class="card" href="chapters/chapter68.pdf" target="_blank" rel="noopener"
+           data-section="sec-9" data-search="art that heals: tracing catharsis in poems on pestilence arya mohan arts, literature, language &amp; cultural studies">
+          <span class="card-num">68</span>
+          <span class="card-body">
+            <span class="card-title">Art that Heals: Tracing Catharsis in Poems on Pestilence</span>
+            <span class="card-authors">Arya Mohan</span>
+            <span class="card-affil">Assistant Professor of English, Prathyusha Engineering College, Chennai, Tamil Nadu, India</span>
+          </span>
+          <span class="card-go" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="card-go-label">PDF</span>
+          </span>
+        </a>
+      </div>
+    </section>
+  <p class="no-results" id="noResults">No chapters match your search.</p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <b>College</b>
+      <div><a href="https://pduamjonga.ac.in" target="_blank" rel="noopener">pduamjonga.ac.in</a></div>
+      <div><a href="https://csc.pduam.dpdns.org" target="_blank" rel="noopener">Department E-Portal</a></div>
+    </div>
+    <div class="footer-col">
+      <b>Publisher</b>
+      <div><a href="https://deepscienceresearch.com" target="_blank" rel="noopener">deepscienceresearch.com</a></div>
+      <div><a href="https://sisirkrajbongshi.github.io/Multidisciplinary-Book-Dept-CSc/" target="_blank" rel="noopener">1st Edition Archive</a></div>
+    </div>
+    <div class="footer-col">
+      <b>Queries</b>
+      <div><a href="mailto:cscpduambookchapter@gmail.com">cscpduambookchapter@gmail.com</a></div>
+      <div>+91 94018 00625 · +91 97077 21185</div>
+    </div>
+    <div class="footer-col">
+      <b>Indexed In</b>
+      <div>Google Scholar · ResearchGate · ORCID · Zenodo · WorldCat</div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Department of Computer Science, PDUAM · Advances in Multidisciplinary Research and Innovation, 2nd Edition</div>
+</footer>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const sectionFilter = document.getElementById('sectionFilter');
+  const resultCount = document.getElementById('resultCount');
+  const noResults = document.getElementById('noResults');
+  const cards = Array.from(document.querySelectorAll('.card'));
+  const themes = Array.from(document.querySelectorAll('.theme'));
+
+  function applyFilters() {
+    const q = searchInput.value.trim().toLowerCase();
+    const sec = sectionFilter.value;
+    let visible = 0;
+
+    cards.forEach(card => {
+      const matchesQuery = !q || card.dataset.search.includes(q);
+      const matchesSection = sec === 'all' || card.dataset.section === sec;
+      const show = matchesQuery && matchesSection;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    themes.forEach(theme => {
+      const anyVisible = theme.querySelectorAll('.card:not([style*="display: none"])').length > 0;
+      theme.style.display = anyVisible ? '' : 'none';
+    });
+
+    resultCount.textContent = visible + (visible === 1 ? ' chapter' : ' chapters');
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  sectionFilter.addEventListener('change', applyFilters);
+</script>
+
+</body>
+</html>

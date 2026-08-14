@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Department of Computer Science, PDUAM Amjonga - Multidisciplinary Research Book Publication Series. Explore indices and chapter archives."/>
+<title>Multidisciplinary Book Series | Dept. of Computer Science | PDUAM, Amjonga</title>
+<link rel="icon" type="image/png" href="https://csc.pduam.dpdns.org/assets/favicon/cs_department_logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  /* HSL-based harmonious tokens */
+  --ink: #0a0c10;
+  --ink-soft: #11141b;
+  --ink-muted: #1a1e28;
+  --surface: rgba(255,255,255,0.03);
+  --surface2: rgba(255,255,255,0.06);
+  --line: rgba(255,255,255,0.08);
+  --line-strong: rgba(255,255,255,0.16);
+  --text: #f3f5f8;
+  --text2: rgba(243,245,248,0.7);
+  --text3: rgba(243,245,248,0.4);
+  --gold: #d4af37;
+  --gold-glow: rgba(212,175,55,0.12);
+  --gold-dim: #c5a059;
+  --teal: #38bfa9;
+  --teal-glow: rgba(56,191,169,0.08);
+  --radius: 12px;
+  --radius-sm: 6px;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+[data-theme="light"] {
+  --ink: #f7f6f2;
+  --ink-soft: #edece6;
+  --ink-muted: #e2e1d7;
+  --surface: rgba(0,0,0,0.025);
+  --surface2: rgba(0,0,0,0.05);
+  --line: rgba(0,0,0,0.08);
+  --line-strong: rgba(0,0,0,0.15);
+  --text: #1a1c22;
+  --text2: rgba(26,28,34,0.7);
+  --text3: rgba(26,28,34,0.45);
+  --gold: #aa8410;
+  --gold-glow: rgba(170,132,16,0.08);
+  --gold-dim: #8e6d0a;
+  --teal: #1b8574;
+  --teal-glow: rgba(27,133,116,0.08);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--ink);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Background Noise overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.55;
+  mix-blend-mode: overlay;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* NAVIGATION */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 3rem);
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+nav.scrolled {
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+[data-theme="light"] nav.scrolled {
+  background: rgba(247, 246, 242, 0.85);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo img {
+  height: 36px;
+  width: auto;
+}
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+}
+.nav-brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.nav-brand-sub {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text2);
+}
+.nav-links a:hover {
+  color: var(--gold);
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.theme-toggle {
+  width: 38px; height: 38px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* HERO */
+.hero {
+  min-height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px clamp(1.5rem, 5vw, 4rem) 80px;
+  overflow: hidden;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  animation: drift 15s ease-in-out infinite;
+}
+.blob-1 {
+  width: 40vw; height: 40vw;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  top: -10%; left: 10%;
+}
+.blob-2 {
+  width: 45vw; height: 45vw;
+  background: radial-gradient(circle, var(--teal) 0%, transparent 70%);
+  bottom: -15%; right: 10%;
+  animation-delay: -5s;
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.05); }
+}
+
+.hero-content {
+  max-width: 900px;
+  z-index: 10;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-dim);
+}
+.hero p {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: var(--text2);
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+}
+
+/* STATS BAR */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  padding: 24px;
+  border-radius: var(--radius);
+  max-width: 980px;
+  margin: 0 auto;
+  transform: translateY(-40px);
+  position: relative;
+  z-index: 20;
+}
+.stat-card {
+  text-align: center;
+  padding: 12px;
+  position: relative;
+}
+.stat-card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -10px; top: 15%; bottom: 15%;
+  width: 1px;
+  background: var(--line);
+}
+@media (max-width: 768px) {
+  .stat-card:not(:last-child)::after { display: none; }
+}
+.stat-card h3 {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-card p {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+}
+
+/* VOLUMES SECTION */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 100px;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 70px;
+}
+.section-title h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.section-title p {
+  font-size: 0.95rem;
+  color: var(--text2);
+}
+
+.volumes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.volume-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1.9fr;
+  gap: 50px;
+  align-items: center;
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(2rem, 5vw, 4rem);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.volume-card:hover {
+  border-color: var(--line-strong);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 900px) {
+  .volume-card {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 30px 24px;
+    text-align: center;
+  }
+}
+
+/* 3D BOOK COVER VIEW */
+.book-container {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.book-stage {
+  width: 200px;
+  height: 280px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: rotateY(-18deg) rotateX(6deg);
+}
+.volume-card:hover .book-stage {
+  transform: rotateY(-28deg) rotateX(8deg) translateZ(10px);
+}
+.book-cover-3d {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 4px 10px 10px 4px;
+  background: var(--ink-muted);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  z-index: 2;
+  overflow: hidden;
+}
+.book-cover-3d img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.book-spine-3d {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 30px;
+  background: var(--ink-muted);
+  transform: rotateY(-90deg) translateX(-15px);
+  transform-origin: left center;
+  z-index: 1;
+}
+.book-pages-3d {
+  position: absolute;
+  right: 6px; top: 6px; bottom: 6px;
+  width: 25px;
+  background: #f0ede8;
+  transform: rotateY(90deg) translateX(12px);
+  transform-origin: right center;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  z-index: 0;
+  border-radius: 2px;
+}
+
+/* BOOK METADATA */
+.book-meta {
+  display: flex;
+  flex-direction: column;
+}
+.volume-badge {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  text-transform: uppercase;
+  background: var(--teal-glow);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 900px) {
+  .volume-badge {
+    align-self: center;
+  }
+}
+.book-meta h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.book-meta p.desc {
+  font-size: 0.95rem;
+  color: var(--text2);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+.book-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.75rem;
+}
+@media (max-width: 900px) {
+  .book-pills {
+    justify-content: center;
+  }
+}
+.pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 6px 14px;
+  background: var(--ink-muted);
+  border: 1px solid var(--line);
+  color: var(--text2);
+  border-radius: var(--radius-sm);
+}
+.pill strong {
+  color: var(--gold);
+  margin-right: 6px;
+}
+.book-info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2rem;
+  text-align: left;
+}
+@media (max-width: 600px) {
+  .book-info-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+.info-item b {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.info-item span {
+  font-size: 0.9rem;
+  color: var(--text2);
+}
+.btn-explore {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: #000;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s;
+  letter-spacing: 0.01em;
+}
+.btn-explore:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(212, 175, 55, 0.25);
+  background: #e5bd43;
+}
+.btn-explore svg {
+  transition: transform 0.2s;
+}
+.btn-explore:hover svg {
+  transform: translateX(4px);
+}
+@media (max-width: 900px) {
+  .btn-explore {
+    align-self: center;
+  }
+}
+
+/* FUTURE VOLUME SECTION */
+.future-section {
+  background: linear-gradient(135deg, var(--ink-soft) 0%, var(--ink-muted) 100%);
+  border: 1px dashed var(--gold-dim);
+  border-radius: var(--radius);
+  padding: clamp(2rem, 5vw, 4rem);
+  text-align: center;
+  margin-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.future-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.future-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 4px 14px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+.future-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+.future-desc {
+  font-size: 1rem;
+  color: var(--text2);
+  max-width: 780px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+}
+.future-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+.future-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 24px;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s;
+}
+.future-card:hover {
+  border-color: var(--line-strong);
+}
+.future-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--gold-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.future-card p {
+  font-size: 0.85rem;
+  color: var(--text2);
+}
+.future-card ul {
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: var(--text2);
+}
+.future-card li {
+  margin-bottom: 6px;
+}
+
+.future-cta {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--text);
+  color: var(--ink);
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+.btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line-strong);
+  color: var(--text2);
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+.btn-secondary:hover {
+  border-color: var(--text);
+  color: var(--text);
+  background: var(--surface);
+}
+
+/* ADVISORY SECTION */
+.advisory-section {
+  margin-top: 100px;
+}
+.advisory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+.board-card {
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  padding: 24px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+.board-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.board-card p.role {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.board-card p.affil {
+  font-size: 0.85rem;
+  color: var(--text2);
+  font-style: italic;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink-soft);
+  color: var(--text2);
+  padding: 60px 24px 30px;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+.footer-col h4 {
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.footer-col p {
+  font-size: 0.85rem;
+  color: var(--text2);
+  margin-bottom: 12px;
+}
+.footer-links {
+  list-style: none;
+}
+.footer-links li {
+  margin-bottom: 8px;
+}
+.footer-links a {
+  font-size: 0.85rem;
+  color: var(--text2);
+}
+.footer-links a:hover {
+  color: var(--gold);
+}
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.8rem;
+  color: var(--text3);
+}
+.footer-bottom a {
+  border-bottom: 1px dotted var(--text3);
+}
+.footer-bottom a:hover {
+  color: var(--gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .book-stage, .btn-explore, .volume-card { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="nav-brand">
+      <span class="nav-brand-title">CS Dept. Publications</span>
+      <span class="nav-brand-sub">PDUAM Amjonga</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#volumes">Volumes</a>
+    <a href="#submissions">Submit Chapter</a>
+    <a href="#advisory">Advisory Board</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark/light theme">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Sun Icon by default -->
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  <div class="hero-content">
+    <span class="eyebrow">International Edited Volumes</span>
+    <h1>Advances in <em>Multidisciplinary Research</em> &amp; Innovation</h1>
+    <p>A prestigious publication series by the Department of Computer Science, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya, Amjonga. Showcasing global research innovations across diverse disciplines in collaboration with Deep Science Publishing.</p>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<section class="stats-bar" aria-label="Publication series statistics">
+  <div class="stat-card">
+    <h3 id="stat-vols">2</h3>
+    <p>Volumes</p>
+  </div>
+  <div class="stat-card">
+    <h3 id="stat-chapters">109</h3>
+    <p>Total Chapters</p>
+  </div>
+  <div class="stat-card">
+    <h3 id="stat-contributors">200+</h3>
+    <p>Contributors</p>
+  </div>
+  <div class="stat-card">
+    <h3 id="stat-countries">4+</h3>
+    <p>Countries</p>
+  </div>
+</section>
+
+<!-- MAIN SHOWCASE -->
+<main>
+  
+  <section id="volumes">
+    <div class="section-title">
+      <h2>Published Volumes</h2>
+      <p>Browse through our peer-reviewed multidisciplinary research collections</p>
+    </div>
+
+    <div class="volumes-container">
+      
+      <!-- VOLUME 2 -->
+      <article class="volume-card">
+        <div class="book-container">
+          <div class="book-stage">
+            <div class="book-cover-3d">
+              <img src="edition-2/coverImage_en.jpg" alt="Advances in Multidisciplinary Research and Innovation 2nd Edition Cover"/>
+            </div>
+            <div class="book-spine-3d"></div>
+            <div class="book-pages-3d"></div>
+          </div>
+        </div>
+        <div class="book-meta">
+          <span class="volume-badge">Latest Volume</span>
+          <h3>Advances in Multidisciplinary Research and Innovation (2nd Edition)</h3>
+          <p class="desc">The second edition archives recent advancements in cutting-edge areas, offering critical perspectives on Artificial Intelligence, Data Science, and smart infrastructures, as well as core insights across Humanities, Social Sciences, and Commerce.</p>
+          <div class="book-pills">
+            <span class="pill"><strong>ISBN:</strong> 978-93-7185-118-3</span>
+            <span class="pill"><strong>E-ISBN:</strong> 978-93-7185-110-7</span>
+            <span class="pill"><strong>DOI:</strong> 10.70593/978-93-7185-110-7</span>
+          </div>
+          <div class="book-info-row">
+            <div class="info-item">
+              <b>Editors</b>
+              <span>Dr. Sisir Kumar Rajbongshi, Dr. Kshirod Sarmah, Dr. Rajdeep Ghosh, Dharmeswar Tarang</span>
+            </div>
+            <div class="info-item">
+              <b>Details</b>
+              <span>68 Chapters &middot; 128 Contributors &middot; Published 2026</span>
+            </div>
+          </div>
+          <a href="edition-2/index.html" class="btn-explore">
+            Browse Chapter Index
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11L11 4M11 4H5M11 4V10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- VOLUME 1 -->
+      <article class="volume-card">
+        <div class="book-container">
+          <div class="book-stage">
+            <div class="book-cover-3d">
+              <img src="edition-1/coverImage_en.png" alt="Multidisciplinary Research Innovations First Edition Cover"/>
+            </div>
+            <div class="book-spine-3d"></div>
+            <div class="book-pages-3d"></div>
+          </div>
+        </div>
+        <div class="book-meta">
+          <span class="volume-badge">Volume 1</span>
+          <h3>Multidisciplinary Research: Innovations in Science, Arts &amp; Commerce (1st Edition)</h3>
+          <p class="desc">Our inaugurating volume brings together high-quality original research spanning multiple disciplines. Focuses on bridging scientific advancements with socio-economic progress and creative arts.</p>
+          <div class="book-pills">
+            <span class="pill"><strong>ISBN:</strong> 978-93-7185-157-2</span>
+            <span class="pill"><strong>E-ISBN:</strong> 978-93-7185-737-6</span>
+            <span class="pill"><strong>DOI:</strong> 10.70593/978-93-7185-737-6</span>
+          </div>
+          <div class="book-info-row">
+            <div class="info-item">
+              <b>Editors</b>
+              <span>Dr. Sisir Kumar Rajbongshi, Dr. Kshirod Sarmah, Dr. Rajdeep Ghosh (Advisory)</span>
+            </div>
+            <div class="info-item">
+              <b>Details</b>
+              <span>41 Chapters &middot; 80+ Contributors &middot; Published Nov 2025</span>
+            </div>
+          </div>
+          <a href="edition-1/index.html" class="btn-explore">
+            Browse Chapter Index
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11L11 4M11 4H5M11 4V10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FUTURE EDITIONS CALL -->
+  <section id="submissions" class="future-section">
+    <span class="future-badge">Open Call</span>
+    <h2 class="future-title">Call for Chapters: 3rd Edition</h2>
+    <p class="future-desc">We invite researchers, academicians, and scholars to contribute original, unpublished research chapters for the upcoming 3rd Edition of our international multidisciplinary volume. All submissions undergo rigorous peer-review.</p>
+    
+    <div class="future-grid">
+      <div class="future-card">
+        <h4><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg> Themes &amp; Domains</h4>
+        <ul>
+          <li>Science &amp; Emerging Technologies (AI, IoT, Bio-tech)</li>
+          <li>Business, Commerce, Economics &amp; Public Policy</li>
+          <li>Social Sciences, Education, Literature &amp; Arts</li>
+          <li>Indian Knowledge Systems &amp; Interdisciplinary Studies</li>
+        </ul>
+      </div>
+      <div class="future-card">
+        <h4><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg> Key Timelines</h4>
+        <ul>
+          <li><strong>Abstract Submission:</strong> October 15, 2026</li>
+          <li><strong>Full Chapter Submission:</strong> December 30, 2026</li>
+          <li><strong>Notification of Review:</strong> February 15, 2027</li>
+          <li><strong>Expected Publication:</strong> Mid 2027</li>
+        </ul>
+      </div>
+      <div class="future-card">
+        <h4><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5 .5A9.5 9.5 0 1110.5 6a9.5 9.5 0 0110 6.5z"/></svg> Chapter Benefits</h4>
+        <ul>
+          <li>International publication with print &amp; digital ISBN</li>
+          <li>Permanent Crossref DOI assigning for each chapter</li>
+          <li>Indexing in Google Scholar, ResearchGate, Zenodo, WorldCat</li>
+          <li>Hardcopy certificate and printed book option</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="future-cta">
+      <a href="mailto:cscpduambookchapter@gmail.com?subject=Inquiry%203rd%20Edition%20Book%20Chapter" class="btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Inquire Editorial Board
+      </a>
+      <a href="mailto:cscpduambookchapter@gmail.com?subject=Submission%203rd%20Edition%20Chapter" class="btn-secondary">Submit Draft Chapter</a>
+    </div>
+  </section>
+
+  <!-- ADVISORY BOARD -->
+  <section id="advisory" class="advisory-section">
+    <div class="section-title">
+      <h2>Advisory &amp; Editorial Board</h2>
+      <p>Leading academic minds guiding our publication series</p>
+    </div>
+    
+    <div class="advisory-grid">
+      <div class="board-card">
+        <h4>Prof. Anjana Kakoti Mahanta</h4>
+        <p class="role">Advisory Board Member</p>
+        <p class="affil">Professor, Dept. of Computer Science, Gauhati University, Assam, India</p>
+      </div>
+      <div class="board-card">
+        <h4>Prof. Helen K. Saikia</h4>
+        <p class="role">Advisory Board Member</p>
+        <p class="affil">Professor, Dept. of Mathematics, Gauhati University, Assam, India</p>
+      </div>
+      <div class="board-card">
+        <h4>Prof. Jagadish Sarma</h4>
+        <p class="role">Advisory Board Member</p>
+        <p class="affil">Professor, Dept. of Sanskrit, Gauhati University, Assam, India</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">PDUAM Amjonga Book Series</div>
+      <p>An academic initiative of the Department of Computer Science, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya, Amjonga. Fostering multidisciplinary research and cross-border innovation.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="#volumes">Volumes</a></li>
+        <li><a href="#submissions">Submissions</a></li>
+        <li><a href="#advisory">Advisory Board</a></li>
+        <li><a href="/">Department Home</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Published By</h4>
+      <p><strong>Deep Science Publishing</strong><br>Global academic publisher<br>USA &middot; UK &middot; India &middot; Turkey</p>
+      <a href="https://deepscienceresearch.com" target="_blank" rel="noopener">deepscienceresearch.com</a>
+    </div>
+    <div class="footer-col">
+      <h4>Queries</h4>
+      <p>For book queries, print copies, and certificate requests:</p>
+      <a href="mailto:cscpduambookchapter@gmail.com">cscpduambookchapter@gmail.com</a>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <div>&copy; 2026 Department of Computer Science, PDUAM Amjonga. All Rights Reserved.</div>
+    <div>Redesigned and structured by <a href="https://sonajit.in" target="_blank" rel="noopener">sOn4jit</a></div>
+  </div>
+</footer>
+
+<script>
+// 1. Theme Toggle Logic
+const html = document.documentElement;
+const themeBtn = document.getElementById('themeBtn');
+const themeIcon = document.getElementById('themeIcon');
+const SKEY = 'pduam-books-theme';
+
+// Theme SVGs
+const sunSvg = `
+  <circle cx="12" cy="12" r="5"></circle>
+  <line x1="12" y1="1" x2="12" y2="3"></line>
+  <line x1="12" y1="21" x2="12" y2="23"></line>
+  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+  <line x1="1" y1="12" x2="3" y2="12"></line>
+  <line x1="21" y1="12" x2="23" y2="12"></line>
+  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+`;
+
+const moonSvg = `
+  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+`;
+
+const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+const applyTheme = (t) => {
+  html.setAttribute('data-theme', t);
+  localStorage.setItem(SKEY, t);
+  if (t === 'dark') {
+    themeIcon.innerHTML = sunSvg;
+  } else {
+    themeIcon.innerHTML = moonSvg;
+  }
+};
+
+const savedTheme = localStorage.getItem(SKEY);
+applyTheme(savedTheme || getSystemTheme());
+
+themeBtn.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+// System Theme Change Listener
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  if (!localStorage.getItem(SKEY)) {
+    applyTheme(e.matches ? 'dark' : 'light');
+  }
+});
+
+// 2. Navbar Scroll Style
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+</script>
+</body>
+</html>

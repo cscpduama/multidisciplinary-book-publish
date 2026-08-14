@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Multidisciplinary Research: Innovations in Science, Arts and Commerce. Published by Deep Science Publishing. First Edition 2025."/>
+<meta name="google-site-verification" content="wMykjl5SXubyluoV47kfMlmiJ4034ldCXQ128iec0R4"/>
+<title>Multidisciplinary Research Book | Dept. of Computer Science | PDUAM, Amjonga</title>
+<link rel="icon" type="image/png" href="/assets/favicon/cs_department_logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink: #0a0a0c;
+  --ink2: #111116;
+  --ink3: #18181f;
+  --ink4: #1f1f28;
+  --surface: rgba(255,255,255,0.03);
+  --surface2: rgba(255,255,255,0.06);
+  --line: rgba(255,255,255,0.08);
+  --line2: rgba(255,255,255,0.14);
+  --text: #f0ede8;
+  --text2: rgba(240,237,232,0.6);
+  --text3: rgba(240,237,232,0.35);
+  --amber: #e8b94a;
+  --amber2: #f5d280;
+  --amber-glow: rgba(232,185,74,0.12);
+  --amber-dim: rgba(232,185,74,0.08);
+  --cyan: #4dd9c0;
+  --cyan-dim: rgba(77,217,192,0.08);
+  --violet: #a78bfa;
+  --r: 10px;
+  --rl: 16px;
+  --rx: 24px;
+}
+[data-theme="light"] {
+  --ink: #f5f3ef;
+  --ink2: #ede9e1;
+  --ink3: #e4dfd5;
+  --ink4: #d9d2c6;
+  --surface: rgba(0,0,0,0.03);
+  --surface2: rgba(0,0,0,0.055);
+  --line: rgba(0,0,0,0.09);
+  --line2: rgba(0,0,0,0.15);
+  --text: #1a1814;
+  --text2: rgba(26,24,20,0.6);
+  --text3: rgba(26,24,20,0.38);
+  --amber: #b5820a;
+  --amber2: #8a5f05;
+  --amber-glow: rgba(181,130,10,0.1);
+  --amber-dim: rgba(181,130,10,0.07);
+  --cyan: #0e8f7a;
+  --cyan-dim: rgba(14,143,122,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%; 
+  -moz-text-size-adjust: 100%;    
+  text-size-adjust: 100%;         
+}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--ink);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.7;
+  transition:background .4s,color .4s;
+}
+::selection{background:var(--amber-glow);color:var(--amber)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* NOISE OVERLAY */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.5;mix-blend-mode:overlay;
+}
+
+/* CURSOR */
+.cursor{
+  position:fixed;width:6px;height:6px;border-radius:50%;
+  background:var(--amber);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;
+  mix-blend-mode:difference;
+}
+.cursor-ring{
+  position:fixed;width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(232,185,74,.4);pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);transition:left .1s,top .1s,width .3s,height .3s,opacity .3s;
+}
+@media(hover:none),(pointer:coarse){
+  .cursor,.cursor-ring{display:none}
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.5rem,4vw,3rem);
+  border-bottom:1px solid transparent;
+  transition:all .4s;
+}
+nav.solid{
+  background:rgba(10,10,12,.9);
+  -webkit-backdrop-filter:blur(24px);
+  backdrop-filter:blur(24px);
+  border-color:var(--line);
+}
+[data-theme="light"] nav.solid{background:rgba(245,243,239,.92)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-wordmark{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:600;letter-spacing:.04em;
+  color:var(--text);
+}
+.nav-wordmark em{font-style:italic;color:var(--amber)}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{
+  font-size:13px;font-weight:400;color:var(--text2);
+  padding:6px 14px;border-radius:8px;transition:all .2s;
+  letter-spacing:.01em;
+}
+.nav-links a:hover{color:var(--text);background:var(--surface2)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-dl{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--amber);color:#000;
+  font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  padding:7px 16px;border-radius:8px;transition:all .25s;
+}
+.nav-dl:hover{background:var(--amber2);transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,185,74,.25)}
+/* Hide download button on mobile */
+@media(max-width:640px){
+  .nav-dl{display:none}
+}
+.theme-toggle{
+  width:36px;height:36px;border-radius:10px;border:1px solid var(--line2);
+  background:var(--surface);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;transition:all .2s;color:var(--text2);
+}
+.theme-toggle:hover{background:var(--surface2);color:var(--amber);border-color:var(--amber-glow)}
+.hamburger{
+  display:none;width:36px;height:36px;border-radius:10px;
+  background:var(--surface);border:1px solid var(--line2);cursor:pointer;
+  flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+.hamburger span{width:18px;height:1.5px;background:var(--text2);transition:all .3s;border-radius:2px}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-menu{
+  display:none;position:fixed;top:60px;left:0;right:0;
+  background:rgba(10,10,12,.98);-webkit-backdrop-filter:blur(24px);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--line);padding:1.5rem 2rem;
+  flex-direction:column;gap:4px;z-index:999;
+}
+.mob-menu.open{display:flex}
+.mob-menu a{
+  font-size:15px;color:var(--text2);padding:10px 14px;border-radius:10px;transition:all .2s;
+}
+.mob-menu a:hover{color:var(--amber);background:var(--amber-dim)}
+[data-theme="light"] .mob-menu{background:rgba(245,243,239,.98)}
+
+/* HERO */
+.hero{
+  min-height:100svh;
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;
+  padding:100px clamp(1.5rem,5vw,4rem) 60px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.blob{
+  position:absolute;border-radius:50%;
+  filter:blur(100px);animation:drift 12s ease-in-out infinite;
+  will-change:transform;
+}
+.blob1{
+  width:60vw;height:60vw;
+  background:radial-gradient(circle,rgba(232,185,74,.07) 0%,transparent 70%);
+  top:-20%;left:-15%;animation-duration:14s;
+}
+.blob2{
+  width:50vw;height:50vw;
+  background:radial-gradient(circle,rgba(77,217,192,.05) 0%,transparent 70%);
+  bottom:-10%;right:-10%;animation-duration:10s;animation-delay:-5s;
+}
+.blob3{
+  width:35vw;height:35vw;
+  background:radial-gradient(circle,rgba(167,139,250,.04) 0%,transparent 70%);
+  top:40%;left:40%;animation-duration:16s;animation-delay:-8s;
+}
+@keyframes drift{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(20px,-20px) scale(1.05)}
+  66%{transform:translate(-10px,15px) scale(.97)}
+}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:60px 60px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);
+}
+#particles{position:absolute;inset:0;pointer-events:none}
+
+.hero-content{position:relative;z-index:1}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line2);border-radius:100px;
+  padding:5px 14px 5px 8px;margin-bottom:2rem;
+  background:var(--surface);
+  animation:fadeUp .7s ease both;
+}
+.eyebrow-dot{
+  width:22px;height:22px;border-radius:50%;
+  background:linear-gradient(135deg,var(--amber),var(--amber2));
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.eyebrow-dot svg{width:10px;height:10px}
+.hero-eyebrow span{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text2)}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,4.5vw,4.2rem);
+  font-weight:600;line-height:1.1;
+  margin-bottom:1.25rem;
+  animation:fadeUp .7s .1s ease both;
+}
+.hero-h1 em{font-style:italic;color:var(--amber)}
+.hero-sub{
+  font-size:clamp(.95rem,1.3vw,1.1rem);
+  color:var(--text2);max-width:480px;line-height:1.65;
+  margin-bottom:2rem;
+  animation:fadeUp .7s .2s ease both;
+}
+.hero-stats{
+  display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;
+  animation:fadeUp .7s .3s ease both;
+}
+.stat{display:flex;flex-direction:column;gap:3px}
+.stat-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:600;color:var(--amber);line-height:1;
+}
+.stat-lbl{font-size:11px;font-weight:400;color:var(--text3);letter-spacing:.08em;text-transform:uppercase}
+.stat-div{width:1px;background:var(--line2);align-self:stretch}
+.hero-cta{
+  display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem;
+  animation:fadeUp .7s .4s ease both;
+}
+.btn-a{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--amber);color:#000;
+  font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  padding:13px 24px;border-radius:10px;transition:all .25s;
+}
+.btn-a:hover{background:var(--amber2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(232,185,74,.3)}
+.btn-b{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--surface);border:1px solid var(--line2);
+  color:var(--text2);font-size:13px;font-weight:500;
+  padding:13px 24px;border-radius:10px;transition:all .25s;
+}
+.btn-b:hover{border-color:var(--amber);color:var(--amber);background:var(--amber-dim)}
+.hero-ids{
+  display:flex;flex-wrap:wrap;gap:1rem;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);
+  animation:fadeUp .7s .5s ease both;
+}
+.hero-ids a{color:var(--cyan);transition:color .2s}
+.hero-ids a:hover{color:var(--amber)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* 3D BOOK */
+.hero-visual{
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  animation:fadeUp .9s .15s ease both;
+}
+.book-stage{
+  perspective:1200px;
+  width:clamp(220px,25vw,340px);
+  cursor:pointer;
+}
+.book-wrap{
+  transform-style:preserve-3d;
+  transform:rotateY(-18deg) rotateX(4deg);
+  transition:transform .6s cubic-bezier(.22,.97,.44,1);
+  animation:bookFloat 6s ease-in-out infinite;
+}
+.book-stage:hover .book-wrap{transform:rotateY(-6deg) rotateX(2deg) scale(1.03)}
+@keyframes bookFloat{
+  0%,100%{transform:rotateY(-18deg) rotateX(4deg) translateY(0)}
+  50%{transform:rotateY(-18deg) rotateX(4deg) translateY(-14px)}
+}
+.book-cover{
+  width:100%;
+  border-radius:3px 10px 10px 3px;
+  box-shadow:
+    -12px 16px 60px rgba(0,0,0,.7),
+    -4px 4px 12px rgba(0,0,0,.5),
+    4px 0 0 rgba(255,255,255,.05) inset,
+    -4px 0 0 rgba(0,0,0,.3) inset;
+  position:relative;z-index:2;
+  display:block;
+}
+.book-reflection{
+  position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);
+  width:85%;height:40px;
+  background:linear-gradient(180deg,rgba(232,185,74,.1),transparent);
+  filter:blur(12px);border-radius:50%;
+}
+.book-glow{
+  position:absolute;inset:-30px;
+  background:radial-gradient(ellipse at center,rgba(232,185,74,.12) 0%,transparent 65%);
+  pointer-events:none;border-radius:50%;
+  animation:glowPulse 3s ease-in-out infinite;
+}
+@keyframes glowPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+
+/* SECTION COMMON */
+.section{padding:clamp(60px,10vw,120px) clamp(1.5rem,5vw,4rem);position:relative}
+.container{max-width:1140px;margin:0 auto}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line2) 40%,var(--line2) 60%,transparent);margin:0 clamp(1.5rem,5vw,4rem)}
+.sec-label{
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:.75rem;
+  display:flex;align-items:center;gap:8px;
+}
+.sec-label::after{content:'';height:1px;width:32px;background:var(--amber);opacity:.4}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,4vw,3rem);font-weight:600;line-height:1.15;
+  margin-bottom:.75rem;
+}
+.sec-desc{font-size:15px;color:var(--text2);max-width:520px;line-height:1.7}
+.section-heading-center{ text-align:center;margin-bottom:0; }
+.sec-label.centered{ justify-content:center; }
+.sec-desc.centered{ margin:0 auto; }
+.download-section .sec-label.centered{ margin-bottom:1rem; }
+.mob-link.download-link{ color:var(--amber); }
+#no-results{ display:none;color:var(--text3);font-size:14px;padding:2rem 0; }
+.access-desc a{ color:var(--cyan); }
+
+/* STATS BAND */
+.stats-band{
+  padding:clamp(40px,6vw,70px) clamp(1.5rem,5vw,4rem);
+  background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.stats-inner{
+  max-width:1140px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+}
+.stat-block{
+  padding:2rem;text-align:center;
+  border-right:1px solid var(--line);
+  transition:background .3s;
+}
+.stat-block:last-child{border-right:none}
+.stat-block:hover{background:var(--surface)}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.5rem,4vw,4rem);font-weight:600;
+  color:var(--amber);line-height:1;margin-bottom:.5rem;
+}
+.stat-tag{font-size:12px;font-weight:400;color:var(--text3);letter-spacing:.08em;text-transform:uppercase}
+.stat-sub{font-size:13px;color:var(--text2);margin-top:4px}
+
+/* PUB DETAILS */
+.pub-section{background:var(--ink)}
+.pub-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--rx);overflow:hidden;
+  margin-top:3rem;
+}
+.pub-card{
+  background:var(--ink2);padding:2rem;
+  display:flex;flex-direction:column;gap:10px;
+  transition:background .25s;position:relative;overflow:hidden;
+}
+.pub-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--amber-dim),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.pub-card:hover{background:var(--ink3)}
+.pub-card:hover::before{opacity:1}
+.pub-icon{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--amber-dim);border:1px solid rgba(232,185,74,.2);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.pub-icon svg{width:16px;height:16px;stroke:var(--amber);fill:none;stroke-width:1.5}
+.pub-meta{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.pub-val{font-size:14px;font-weight:500;color:var(--text);line-height:1.5}
+.pub-val small{display:block;font-size:12px;color:var(--text2);font-weight:400;margin-top:2px}
+.pub-val a{color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:12px;transition:color .2s}
+.pub-val a:hover{color:var(--amber)}
+.pub-mono{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.02em}
+
+/* CHAPTERS */
+.chapters-section{background:var(--ink2)}
+.filter-bar{
+  display:flex;align-items:center;gap:12px;margin:2rem 0 0;flex-wrap:wrap;
+}
+.search-wrap{
+  flex:1;min-width:200px;max-width:320px;position:relative;
+}
+.search-wrap svg{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  width:15px;height:15px;stroke:var(--text3);fill:none;stroke-width:1.5;pointer-events:none;
+}
+.search-input{
+  width:100%;background:var(--surface2);border:1px solid var(--line2);
+  border-radius:10px;padding:10px 14px 10px 40px;
+  font:inherit;font-size:13px;color:var(--text);outline:none;transition:border .2s;
+}
+.search-input::placeholder{color:var(--text3)}
+.search-input:focus{border-color:var(--amber)}
+.cat-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.cat-btn{
+  padding:8px 16px;border-radius:100px;font-size:12px;font-weight:500;
+  background:var(--surface);border:1px solid var(--line2);color:var(--text2);
+  cursor:pointer;transition:all .2s;font-family:inherit;
+}
+.cat-btn:hover{border-color:var(--line2);color:var(--text)}
+.cat-btn.on{background:var(--amber-dim);border-color:rgba(232,185,74,.4);color:var(--amber)}
+.chapters-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden;
+}
+.chapter-card{
+  background:var(--ink3);padding:1.25rem 1.5rem;
+  display:flex;gap:12px;align-items:flex-start;
+  cursor:pointer;transition:background .2s;
+  text-decoration:none;color:inherit;
+  position:relative;overflow:hidden;
+}
+.chapter-card::after{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:2px;background:var(--amber);transform:scaleY(0);transform-origin:bottom;
+  transition:transform .25s;
+}
+.chapter-card:hover{background:var(--ink4)}
+.chapter-card:hover::after{transform:scaleY(1)}
+.ch-num{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;
+  color:var(--amber);background:var(--amber-dim);border:1px solid rgba(232,185,74,.2);
+  border-radius:6px;padding:4px 9px;white-space:nowrap;flex-shrink:0;margin-top:1px;
+}
+.ch-body{flex:1;min-width:0}
+.ch-title{
+  font-size:13px;font-weight:500;color:var(--text);line-height:1.55;margin-bottom:5px;
+  display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.ch-author{font-size:11px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch-arrow{font-size:13px;color:var(--text3);flex-shrink:0;transition:all .2s;align-self:center;margin-left:4px}
+.chapter-card:hover .ch-arrow{color:var(--amber);transform:translate(2px,-2px)}
+.ch-pdf{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--cyan);margin-top:6px;
+}
+.cat-section{display:none}.cat-section.on{display:block}
+.cat-head{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:1.5rem;margin-top:2.5rem;
+}
+.cat-head:first-child{margin-top:0}
+.cat-head-label{
+  font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--cyan);white-space:nowrap;
+}
+.cat-head-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(77,217,192,.25),transparent)}
+
+/* DISCIPLINES */
+.disciplines-section{background:var(--ink)}
+.disc-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem;
+}
+.disc-card{
+  padding:1.75rem 1.5rem;border-radius:var(--rl);
+  border:1px solid var(--line);background:var(--ink2);
+  transition:all .3s;cursor:default;position:relative;overflow:hidden;
+}
+.disc-card::before{
+  content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;
+  border-radius:inherit;
+}
+.disc-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.disc-card:hover::before{opacity:1}
+.disc-card-ict::before{background:linear-gradient(135deg,rgba(232,185,74,.06),transparent)}
+.disc-card-math::before{background:linear-gradient(135deg,rgba(167,139,250,.06),transparent)}
+.disc-card-phys::before{background:linear-gradient(135deg,rgba(77,217,192,.06),transparent)}
+.disc-card-chem::before{background:linear-gradient(135deg,rgba(251,113,133,.06),transparent)}
+.disc-card-life::before{background:linear-gradient(135deg,rgba(74,222,128,.06),transparent)}
+.disc-card-comm::before{background:linear-gradient(135deg,rgba(250,204,21,.06),transparent)}
+.disc-card-soc::before{background:linear-gradient(135deg,rgba(96,165,250,.06),transparent)}
+.disc-card-arts::before{background:linear-gradient(135deg,rgba(244,114,182,.06),transparent)}
+.disc-card-ict .disc-icon{background:rgba(232,185,74,.1)}
+.disc-card-math .disc-icon{background:rgba(167,139,250,.1)}
+.disc-card-phys .disc-icon{background:rgba(77,217,192,.1)}
+.disc-card-chem .disc-icon{background:rgba(251,113,133,.1)}
+.disc-card-life .disc-icon{background:rgba(74,222,128,.1)}
+.disc-card-comm .disc-icon{background:rgba(250,204,21,.1)}
+.disc-card-soc .disc-icon{background:rgba(96,165,250,.1)}
+.disc-card-arts .disc-icon{background:rgba(244,114,182,.1)}
+.disc-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:1rem;flex-shrink:0;
+}
+.disc-name{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px}
+.disc-count{font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace}
+
+/* TIMELINE */
+.timeline-section{background:var(--ink2)}
+.timeline{
+  position:relative;margin-top:3rem;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+}
+.timeline::before{
+  content:'';position:absolute;top:28px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--line2) 15%,var(--line2) 85%,transparent);
+}
+.tl-item{padding:0 1rem;position:relative;text-align:center}
+.tl-dot{
+  width:14px;height:14px;border-radius:50%;
+  background:var(--amber);border:3px solid var(--ink2);
+  margin:0 auto 1.5rem;position:relative;z-index:1;
+  box-shadow:0 0 20px rgba(232,185,74,.5);
+}
+.tl-dot.future{background:var(--ink4);border-color:var(--line2);box-shadow:none}
+.tl-dot.soon{background:var(--cyan);box-shadow:0 0 20px rgba(77,217,192,.4)}
+.tl-year{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:600;
+  color:var(--amber);margin-bottom:.5rem;line-height:1;
+}
+.tl-year.future{color:var(--text3)}
+.tl-year.soon{color:var(--cyan)}
+.tl-badge{
+  display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 10px;border-radius:100px;margin-bottom:.75rem;
+}
+.tl-badge-pub{background:rgba(232,185,74,.12);color:var(--amber);border:1px solid rgba(232,185,74,.2)}
+.tl-badge-soon{background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(77,217,192,.2)}
+.tl-badge-plan{background:var(--surface);color:var(--text3);border:1px solid var(--line)}
+.tl-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:.5rem}
+.tl-desc{font-size:12px;color:var(--text3);line-height:1.6}
+
+/* EDITORIAL BOARD */
+.team-section{background:var(--ink)}
+.team-subhead{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-weight:400;font-style:italic;
+  color:var(--text2);margin-bottom:1.5rem;margin-top:3rem;
+}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1rem}
+.team-card{
+  background:var(--ink2);border:1px solid var(--line);
+  border-radius:var(--rl);padding:1.75rem 1.5rem;text-align:center;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.team-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--amber),transparent);
+  transform:scaleX(0);transition:transform .4s;
+}
+.team-card:hover{border-color:rgba(232,185,74,.3);transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,.3)}
+.team-card:hover::before{transform:scaleX(1)}
+.team-avatar{
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--amber-dim),var(--surface));
+  border:1px solid rgba(232,185,74,.2);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1rem;
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--amber);
+}
+.team-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.4}
+.team-role{font-size:11px;color:var(--text3);letter-spacing:.02em}
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.adv-card{
+  background:var(--ink2);border:1px solid var(--line);
+  border-radius:var(--r);padding:1.25rem;
+  display:flex;gap:14px;align-items:center;transition:all .25s;
+}
+.adv-card:hover{border-color:var(--line2);background:var(--ink3)}
+.adv-avatar{
+  width:46px;height:46px;border-radius:12px;flex-shrink:0;
+  background:var(--cyan-dim);border:1px solid rgba(77,217,192,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:var(--cyan);
+  font-family:'Cormorant Garamond',serif;
+}
+.adv-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.adv-inst{font-size:11px;color:var(--text3)}
+
+/* ACCESS */
+.access-section{background:var(--ink2)}
+.access-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+.access-card{
+  padding:1.75rem;border-radius:var(--rl);
+  background:var(--ink3);border:1px solid var(--line);
+  transition:all .3s;
+}
+.access-card:hover{border-color:var(--line2);transform:translateY(-3px);background:var(--ink4)}
+.access-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.25rem;
+}
+.access-card.pdf .access-icon{background:rgba(232,185,74,.1);}
+.access-card.doi .access-icon{background:rgba(77,217,192,.1);}
+.access-card.global .access-icon{background:rgba(167,139,250,.1);}
+.access-card.digital .access-icon{background:rgba(74,222,128,.1);}
+.access-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:.5rem}
+.access-desc{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* DOWNLOAD CTA */
+.download-section{
+  background:var(--ink);
+  padding:clamp(80px,12vw,140px) clamp(1.5rem,5vw,4rem);
+  text-align:center;position:relative;overflow:hidden;
+}
+.dl-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(232,185,74,.06) 0%,transparent 70%);
+}
+.dl-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.dl-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,5vw,4rem);font-weight:600;
+  margin-bottom:1rem;line-height:1.1;
+}
+.dl-title em{font-style:italic;color:var(--amber)}
+.dl-sub{font-size:16px;color:var(--text2);margin-bottom:2.5rem;line-height:1.6}
+.btn-dl{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--amber);color:#000;
+  font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:16px 36px;border-radius:12px;transition:all .3s;
+}
+.btn-dl:hover{background:var(--amber2);transform:translateY(-3px);box-shadow:0 20px 60px rgba(232,185,74,.35)}
+.btn-dl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.dl-meta{margin-top:1.5rem;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3)}
+.dl-meta a{color:var(--cyan);transition:color .2s}.dl-meta a:hover{color:var(--amber)}
+
+/* FOOTER */
+footer{
+  background:var(--ink2);border-top:1px solid var(--line);
+  padding:3rem clamp(1.5rem,5vw,4rem) 2rem;
+}
+.footer-inner{
+  max-width:1140px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;
+}
+.footer-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:600;margin-bottom:.5rem;
+}
+.footer-brand em{font-style:italic;color:var(--amber)}
+.footer-desc{font-size:13px;color:var(--text2);line-height:1.7;max-width:340px;margin-bottom:1rem}
+.footer-ids{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);line-height:2}
+.footer-ids a{color:var(--cyan);transition:color .2s}.footer-ids a:hover{color:var(--amber)}
+.footer-col h4{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:13px;color:var(--text2);transition:color .2s}
+.footer-links a:hover{color:var(--amber)}
+.footer-bottom{
+  max-width:1140px;margin:2rem auto 0;
+  padding-top:1.5rem;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+  font-size:12px;color:var(--text3);
+}
+.footer-bottom a{color:var(--text3);transition:color .2s}.footer-bottom a:hover{color:var(--amber)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.book-wrap,.blob,.btn-a,.btn-b{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* SCROLL TOP */
+#scroll-top{
+  position:fixed;bottom:2rem;right:2rem;
+  width:42px;height:42px;border-radius:10px;
+  background:var(--surface2);border:1px solid var(--line2);
+  color:var(--amber);font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:translateY(10px);transition:all .3s;z-index:100;
+}
+#scroll-top.vis{opacity:1;transform:none}
+#scroll-top:hover{background:var(--amber-dim)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .disc-grid{grid-template-columns:repeat(2,1fr)}
+  .access-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:90px;text-align:center}
+  .hero-content{order:2}
+  .hero-visual{order:1}
+  .hero-eyebrow,.hero-stats,.hero-cta,.hero-ids{justify-content:center}
+  .hero-sub{margin:0 auto 2rem}
+  .stat-div{display:none}
+  .pub-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .stat-block:nth-child(2){border-right:none}
+  .stat-block:nth-child(3){border-top:1px solid var(--line)}
+  .timeline{grid-template-columns:1fr 1fr;row-gap:2rem}
+  .timeline::before{display:none}
+  .footer-inner{grid-template-columns:1fr}
+  .adv-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .pub-grid{grid-template-columns:1fr}
+  .disc-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .access-grid{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr 1fr}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat-block:nth-child(2){border-right:1px solid var(--line)}
+  .stat-block:nth-child(4){border-right:none}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .book-stage{width:clamp(180px,55vw,260px)}
+  #particles{display:none}
+}
+@media(max-width:400px){
+  .disc-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-wordmark">
+    <a href="/" target="_blank" rel="noopener"><em></em>CS Dept. PDUAM Amjonga</a> 
+  </div>
+  <ul class="nav-links" id="nav-links" role="list">
+    <li><a href="#about">About</a></li>
+    <li><a href="#chapters">Chapters</a></li>
+    <li><a href="#editions">Editions</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+  <div class="nav-right">
+   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+  </button>
+    <a href="ch/finalbook.pdf" target="_blank" rel="noopener" class="nav-dl">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15V3m0 12l-4-4m4 4l4-4"/><path d="M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+      Download
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob-menu" id="mob-menu" role="navigation">
+  <a href="#about" class="mob-link">About</a>
+  <a href="#chapters" class="mob-link">Chapters</a>
+  <a href="#editions" class="mob-link">Editions</a>
+  <a href="#team" class="mob-link">Team</a>
+  <a href="ch/finalbook.pdf" target="_blank" rel="noopener" class="mob-link download-link">&#8595; Download Full Book</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="about" aria-label="Publication hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#000" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <span>CS Dept &middot; PDUAM Amjonga &middot; First Edition 2025</span>
+    </div>
+    <h1 class="hero-h1">Multidisciplinary Research:<br><em>Innovations</em> in Science,<br>Arts and Commerce</h1>
+    <p class="hero-sub">An Academic Initiative of the Department of Computer Science, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya, Amjonga, Goalpara, Assam&#8209;783124</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-val count-up" data-target="41">0</span>
+        <span class="stat-lbl">Chapters</span>
+      </div>
+      <div class="stat-div" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-val count-up" data-target="7">0</span>
+        <span class="stat-lbl">Disciplines</span>
+      </div>
+      <div class="stat-div" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-val">2025</span>
+        <span class="stat-lbl">First Edition</span>
+      </div>
+      <div class="stat-div" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-val">4</span>
+        <span class="stat-lbl">Countries</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="ch/finalbook.pdf" target="_blank" rel="noopener" class="btn-a">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15V3m0 12l-4-4m4 4l4-4"/><path d="M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+        Download Full Book
+      </a>
+      <a href="#chapters" class="btn-b">Browse Chapters &rarr;</a>
+    </div>
+    <div class="hero-ids">
+      <span>ISBN: 978-93-7185-157-2</span>
+      <span>&middot;</span>
+      <span>E-ISBN: 978-93-7185-737-6</span>
+      <span>&middot;</span>
+      <a href="https://doi.org/10.70593/978-93-7185-737-6" target="_blank" rel="noopener">DOI: 10.70593/978-93-7185-737-6 &#8599;</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="book-stage" id="book-stage" role="img" aria-label="Book cover: Multidisciplinary Research">
+      <div class="book-wrap" id="book-wrap">
+        <img src="coverImage_en.png" alt="Multidisciplinary Research book cover" class="book-cover" loading="eager"/>
+        <div class="book-reflection" aria-hidden="true"></div>
+      </div>
+      <div class="book-glow" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- STATS BAND -->
+<div class="stats-band" aria-label="Publication statistics">
+  <div class="stats-inner">
+    <div class="stat-block reveal">
+      <div class="stat-num count-up" data-target="41">0</div>
+      <div class="stat-tag">Research Chapters</div>
+      <div class="stat-sub">Peer-reviewed contributions</div>
+    </div>
+    <div class="stat-block reveal reveal-d1">
+      <div class="stat-num count-up" data-target="8">0</div>
+      <div class="stat-tag">Disciplines</div>
+      <div class="stat-sub">AI, Math, Sciences &amp; Arts</div>
+    </div>
+    <div class="stat-block reveal reveal-d2">
+      <div class="stat-num count-up" data-target="4">0</div>
+      <div class="stat-tag">Publisher Countries</div>
+      <div class="stat-sub">USA &middot; UK &middot; India &middot; Turkey</div>
+    </div>
+    <div class="stat-block reveal reveal-d3">
+      <div class="stat-num">2025</div>
+      <div class="stat-tag">First Published</div>
+      <div class="stat-sub">October 2025</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- PUBLICATION DETAILS -->
+<section class="section pub-section" id="pub-info" aria-labelledby="pub-heading">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Bibliographic Information</p>
+      <h2 class="sec-title" id="pub-heading">Scholarly Publishing Details</h2>
+      <p class="sec-desc">Complete citation and access information for this edited volume.</p>
+    </div>
+    <div class="pub-grid reveal">
+      <div class="pub-card">
+        <div class="pub-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="pub-meta">Institution</div>
+        <div class="pub-val">Dept. of Computer Science, PDUAM Amjonga<small>Goalpara, Assam &mdash; 783124, India</small></div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <div class="pub-meta">Publisher</div>
+        <div class="pub-val">Deep Science Publishing<small>USA &middot; UK &middot; India &middot; Turkey</small></div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="pub-meta">Edition &amp; Year</div>
+        <div class="pub-val">First Edition<small>October 2025</small></div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="pub-meta">DOI</div>
+        <div class="pub-val"><a href="https://doi.org/10.70593/978-93-7185-737-6" target="_blank" rel="noopener">10.70593/978-93-7185-737-6</a></div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div class="pub-meta">Print ISBN</div>
+        <div class="pub-val pub-mono">978-93-7185-157-2</div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="pub-meta">Electronic ISBN</div>
+        <div class="pub-val pub-mono">978-93-7185-737-6</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- DISCIPLINES -->
+<section class="section disciplines-section" id="disciplines" aria-labelledby="disc-heading">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Research Coverage</p>
+      <h2 class="sec-title" id="disc-heading">Eight Major Disciplines</h2>
+      <p class="sec-desc">Spanning the full breadth of contemporary scholarship from technology to the arts.</p>
+    </div>
+    <div class="disc-grid">
+      <div class="disc-card disc-card-ict reveal reveal-d1">
+        <div class="disc-icon">&#129302;</div>
+        <div class="disc-name">AI / ICT / EdTech</div>
+        <div class="disc-count">12 chapters</div>
+      </div>
+      <div class="disc-card disc-card-math reveal reveal-d2">
+        <div class="disc-icon">&#8721;</div>
+        <div class="disc-name">Mathematical Sciences</div>
+        <div class="disc-count">2 chapters</div>
+      </div>
+      <div class="disc-card disc-card-phys reveal reveal-d3">
+        <div class="disc-icon">&#9883;</div>
+        <div class="disc-name">Physical Sciences</div>
+        <div class="disc-count">5 chapters</div>
+      </div>
+      <div class="disc-card disc-card-chem reveal reveal-d4">
+        <div class="disc-icon">&#129514;</div>
+        <div class="disc-name">Chemical Sciences</div>
+        <div class="disc-count">1 chapter</div>
+      </div>
+      <div class="disc-card disc-card-life reveal reveal-d1">
+        <div class="disc-icon">&#127807;</div>
+        <div class="disc-name">Life Sciences</div>
+        <div class="disc-count">6 chapters</div>
+      </div>
+      <div class="disc-card disc-card-comm reveal reveal-d2">
+        <div class="disc-icon">&#128202;</div>
+        <div class="disc-name">Commerce &amp; Management</div>
+        <div class="disc-count">3 chapters</div>
+      </div>
+      <div class="disc-card disc-card-soc reveal reveal-d3">
+        <div class="disc-icon">&#127760;</div>
+        <div class="disc-name">Social Sciences</div>
+        <div class="disc-count">7 chapters</div>
+      </div>
+      <div class="disc-card disc-card-arts reveal reveal-d4">
+        <div class="disc-icon">&#127917;</div>
+        <div class="disc-name">Arts, Literature &amp; Culture</div>
+        <div class="disc-count">5 chapters</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- CHAPTERS -->
+<section class="section chapters-section" id="chapters" aria-labelledby="chapters-heading">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Table of Contents</p>
+      <h2 class="sec-title" id="chapters-heading">41 Research Chapters</h2>
+      <p class="sec-desc">Contributed by authors from India and abroad, spanning eight major disciplines.</p>
+    </div>
+    <div class="filter-bar reveal">
+      <div class="search-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" class="search-input" id="ch-search" placeholder="Search chapters or authors&hellip;" aria-label="Search chapters"/>
+      </div>
+      <div class="cat-tabs" role="tablist" aria-label="Filter by discipline">
+        <button class="cat-btn on" data-cat="all" role="tab" aria-selected="true">All</button>
+        <button class="cat-btn" data-cat="ict" role="tab" aria-selected="false">AI / ICT</button>
+        <button class="cat-btn" data-cat="math" role="tab" aria-selected="false">Mathematics</button>
+        <button class="cat-btn" data-cat="physics" role="tab" aria-selected="false">Physics</button>
+        <button class="cat-btn" data-cat="chem" role="tab" aria-selected="false">Chemistry</button>
+        <button class="cat-btn" data-cat="life" role="tab" aria-selected="false">Life Sciences</button>
+        <button class="cat-btn" data-cat="commerce" role="tab" aria-selected="false">Commerce</button>
+        <button class="cat-btn" data-cat="social" role="tab" aria-selected="false">Social Sciences</button>
+        <button class="cat-btn" data-cat="arts" role="tab" aria-selected="false">Arts</button>
+      </div>
+    </div>
+
+    <div class="cat-section on" id="cat-all">
+      <div class="cat-head"><span class="cat-head-label">AI / ICT / Technology / Education Tech</span><div class="cat-head-line"></div></div>
+      <div class="chapters-grid" id="g-ict-all"></div>
+      <div class="cat-head"><span class="cat-head-label">Mathematical Sciences</span><div class="cat-head-line"></div></div>
+      <div class="chapters-grid" id="g-math-all"></div>
+      <div class="cat-head"><span class="cat-head-label">Physical Sciences</span><div class="cat-head-line"></div></div>
+      <div class="chapters-grid" id="g-physics-all"></div>
+      <div class="cat-head"><span class="cat-head-label">Chemical Sciences</span><div class="cat-head-line"></div></div>
+      <div class="chapters-grid" id="g-chem-all"></div>
+      <div class="cat-head"><span class="cat-head-label">Life Science / Biology / Environmental / Geography</span><div class="cat-head-line"></div></div>
+      <div class="chapters-grid" id="g-life-all"></div>
+      <div class="cat-head"><span class="cat-head-label">Economics / Commerce / Management</span><div class="cat-head-line"></div></div>
+      <div class="chapters-grid" id="g-commerce-all"></div>
+      <div class="cat-head"><span class="cat-head-label">Social Science / Education / Psychology / Anthropology</span><div class="cat-head-line"></div></div>
+      <div class="chapters-grid" id="g-social-all"></div>
+      <div class="cat-head"><span class="cat-head-label">Arts / Literature / Culture / Philosophy</span><div class="cat-head-line"></div></div>
+      <div class="chapters-grid" id="g-arts-all"></div>
+    </div>
+    <div class="cat-section" id="cat-ict"><div class="chapters-grid" id="g-ict"></div></div>
+    <div class="cat-section" id="cat-math"><div class="chapters-grid" id="g-math"></div></div>
+    <div class="cat-section" id="cat-physics"><div class="chapters-grid" id="g-physics"></div></div>
+    <div class="cat-section" id="cat-chem"><div class="chapters-grid" id="g-chem"></div></div>
+    <div class="cat-section" id="cat-life"><div class="chapters-grid" id="g-life"></div></div>
+    <div class="cat-section" id="cat-commerce"><div class="chapters-grid" id="g-commerce"></div></div>
+    <div class="cat-section" id="cat-social"><div class="chapters-grid" id="g-social"></div></div>
+    <div class="cat-section" id="cat-arts"><div class="chapters-grid" id="g-arts"></div></div>
+    <div class="cat-section" id="cat-search">
+      <div class="cat-head" id="search-head"><span class="cat-head-label" id="search-label">Search Results</span><div class="cat-head-line"></div></div>
+      <div class="chapters-grid" id="g-search"></div>
+      <p id="no-results">No chapters match your search.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- TIMELINE -->
+<section class="section timeline-section" id="editions" aria-labelledby="tl-heading">
+  <div class="container">
+    <div class="reveal section-heading-center">
+      <p class="sec-label centered">Publication Series</p>
+      <h2 class="sec-title" id="tl-heading">Annual Edition Roadmap</h2>
+      <p class="sec-desc centered">A growing repository of interdisciplinary scholarship, updated every year.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025</div>
+        <div><span class="tl-badge tl-badge-pub">Published</span></div>
+        <div class="tl-title">First Edition</div>
+        <div class="tl-desc">41 chapters from India &amp; abroad across 8 disciplines. October 2025.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot soon"></div>
+        <div class="tl-year soon">2026</div>
+        <div><span class="tl-badge tl-badge-soon">Upcoming</span></div>
+        <div class="tl-title">Second Edition</div>
+        <div class="tl-desc">Expanded chapters and new contributions. Call for chapters open.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot future"></div>
+        <div class="tl-year future">2027</div>
+        <div><span class="tl-badge tl-badge-plan">Planned</span></div>
+        <div class="tl-title">Third Edition</div>
+        <div class="tl-desc">International collaborations and broader thematic scope.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot future"></div>
+        <div class="tl-year future">2028</div>
+        <div><span class="tl-badge tl-badge-plan">Planned</span></div>
+        <div class="tl-title">Fourth Edition</div>
+        <div class="tl-desc">Advanced research and new thematic sections under discussion.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- EDITORIAL BOARD -->
+<section class="section team-section" id="team" aria-labelledby="team-heading">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Editorial Board</p>
+      <h2 class="sec-title" id="team-heading">Editors &amp; Advisory Members</h2>
+    </div>
+    <p class="team-subhead reveal">Chief Editors</p>
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-avatar">SR</div>
+        <div class="team-name">Dr. Sisir Kumar Rajbongshi</div>
+        <div class="team-role">Editor &middot; Dept. of CS &middot; PDUAM</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">KS</div>
+        <div class="team-name">Dr. Kshirod Sarmah</div>
+        <div class="team-role">Editor &middot; Dept. of CS &middot; PDUAM</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">RG</div>
+        <div class="team-name">Dr. Rajdeep Ghosh</div>
+        <div class="team-role">Editor &middot; Dept. of CS &middot; PDUAM</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">DT</div>
+        <div class="team-name">Dharmeswar Tarang</div>
+        <div class="team-role">Editor &middot; Dept. of CS &middot; PDUAM</div>
+      </div>
+    </div>
+    <p class="team-subhead reveal">Advisory Board</p>
+    <div class="adv-grid reveal">
+      <div class="adv-card">
+        <div class="adv-avatar">AM</div>
+        <div>
+          <div class="adv-name">Prof. Anjana Kakoti Mahanta</div>
+          <div class="adv-inst">Gauhati University, Assam</div>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-avatar">HS</div>
+        <div>
+          <div class="adv-name">Prof. Helen K Saikia</div>
+          <div class="adv-inst">Gauhati University, Assam</div>
+        </div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-avatar">UB</div>
+        <div>
+          <div class="adv-name">Prof. Utpal Bhattacharjee</div>
+          <div class="adv-inst">Rajiv Gandhi University, Arunachal Pradesh</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- ACCESS SECTION -->
+<section class="section access-section" aria-labelledby="access-heading">
+  <div class="container">
+    <div class="reveal section-heading-center">
+      <p class="sec-label centered">Open Access</p>
+      <h2 class="sec-title" id="access-heading">Reading Experience</h2>
+      <p class="sec-desc centered">Multiple ways to access, cite, and explore this publication.</p>
+    </div>
+    <div class="access-grid">
+      <div class="access-card reveal reveal-d1 pdf">
+        <div class="access-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#e8b94a" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 15V3m0 12l-4-4m4 4l4-4"/><path d="M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+        </div>
+        <div class="access-title">PDF Access</div>
+        <div class="access-desc">Download individual chapters or the complete volume in PDF format. Free open access for all readers.</div>
+      </div>
+      <div class="access-card reveal reveal-d2 doi">
+        <div class="access-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#4dd9c0" stroke-width="1.5" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="access-title">DOI Persistent Link</div>
+        <div class="access-desc">Cite this work using the permanent DOI: <a href="https://doi.org/10.70593/978-93-7185-737-6" target="_blank" rel="noopener">10.70593/978-93-7185-737-6</a></div>
+      </div>
+      <div class="access-card reveal reveal-d3 global">
+        <div class="access-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#a78bfa" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <div class="access-title">Global Research Coverage</div>
+        <div class="access-desc">Contributors from institutions across India and internationally, covering diverse research perspectives.</div>
+      </div>
+      <div class="access-card reveal reveal-d4 digital">
+        <div class="access-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#4ade80" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <div class="access-title">Digital Publication</div>
+        <div class="access-desc">Published by Deep Science Publishing with full digital indexing, metadata, and bibliographic records.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD CTA -->
+<section class="download-section" aria-label="Download book">
+  <div class="dl-bg" aria-hidden="true"></div>
+  <div class="dl-inner reveal">
+    <p class="sec-label centered">Free Download</p>
+    <h2 class="dl-title">Read the Full<br><em>Volume Now</em></h2>
+    <p class="dl-sub">Download all 41 chapters across 8 disciplines as a single, beautifully formatted PDF. Completely free, open access.</p>
+    <a href="ch/finalbook.pdf" target="_blank" rel="noopener" class="btn-dl">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 15V3m0 12l-4-4m4 4l4-4"/><path d="M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+      Download Full Book (PDF)
+    </a>
+    <p class="dl-meta">
+      DOI: <a href="https://doi.org/10.70593/978-93-7185-737-6" target="_blank" rel="noopener">10.70593/978-93-7185-737-6</a>
+      &nbsp;&middot;&nbsp; E-ISBN: 978-93-7185-737-6 &nbsp;&middot;&nbsp; Deep Science Publishing
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Multidisciplinary Research:<br><em>Innovations</em> in Science, Arts and Commerce</div>
+      <p class="footer-desc">An Academic Initiative of the Department of Computer Science, Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya, Amjonga, Goalpara, Assam&#8209;783124</p>
+      <div class="footer-ids">
+        <div>Print ISBN: 978-93-7185-157-2</div>
+        <div>E-ISBN: 978-93-7185-737-6</div>
+        <div>DOI: <a href="https://doi.org/10.70593/978-93-7185-737-6" target="_blank" rel="noopener">10.70593/978-93-7185-737-6</a></div>
+      </div>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#chapters">Browse Chapters</a></li>
+        <li><a href="#editions">Editions</a></li>
+        <li><a href="#team">Editorial Board</a></li>
+        <li><a href="ch/finalbook.pdf" target="_blank" rel="noopener">Download Full Book</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Institution</h4>
+      <ul class="footer-links">
+        <li><a href="https://pduamamjonga.ac.in" target="_blank" rel="noopener">PDUAM Amjonga</a></li>
+        <li><a href="https://csc.pduam.dpdns.org" target="_blank" rel="noopener">Dept. of CS, PDUAM</a></li>
+        <li><a href="https://doi.org/10.70593/978-93-7185-737-6" target="_blank" rel="noopener">DOI Link</a></li>
+        <li><a href="https://deepscienceresearch.com/dsr/catalog/book/347" target="_blank" rel="noopener">Deep Science Publishing</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Deep Science Publishing &middot; USA &middot; UK &middot; India &middot; Turkey</span>
+    <span>Designed &amp; maintained by the Dept. of Computer Science, PDUAM Amjonga</span>
+  </div>
+</footer>
+
+<button id="scroll-top" aria-label="Back to top">&#8593;</button>
+
+<script>
+(function(){
+'use strict';
+
+/* THEME */
+const html = document.documentElement;
+const themeBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+// Beautiful, streamlined Lucide-styled paths
+const sunSVG = `<path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M16.24 16.24l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M6.34 17.66l-1.41 1.41"></path><path d="M19.07 4.93l-1.41 1.41"></path>`;
+const moonSVG = `<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>`;
+
+function setTheme(t){
+  html.setAttribute('data-theme', t);
+  localStorage.setItem('theme', t);
+  themeIcon.innerHTML = t === 'dark' ? moonSVG : sunSVG;
+}
+const saved = localStorage.getItem('theme');
+const preferred = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+setTheme(saved || preferred);
+themeBtn.addEventListener('click', ()=> setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+/* CURSOR (desktop/mouse only) */
+const isTouchDevice = window.matchMedia('(hover:none),(pointer:coarse)').matches;
+if(!isTouchDevice){
+  const cur = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e=>{
+    mx=e.clientX; my=e.clientY;
+    cur.style.left=mx+'px'; cur.style.top=my+'px';
+  });
+  (function animRing(){
+    rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
+    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    requestAnimationFrame(animRing);
+  })();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.opacity='.6';});
+    el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.opacity='1';});
+  });
+}
+
+/* NAV */
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobMenu = document.getElementById('mob-menu');
+window.addEventListener('scroll',()=>{ navbar.classList.toggle('solid', window.scrollY > 20); });
+navbar.classList.toggle('solid', window.scrollY > 20);
+hamburger.addEventListener('click',()=>{
+  const open = mobMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click',()=>{
+  mobMenu.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false');
+}));
+
+/* PARTICLES */
+const canvas = document.getElementById('particles');
+if(canvas){
+  const ctx = canvas.getContext('2d');
+  let pts=[];
+  function resizeCanvas(){
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  for(let i=0;i<55;i++){
+    pts.push({
+      x:Math.random()*canvas.width,
+      y:Math.random()*canvas.height,
+      r:Math.random()*1.2+.3,
+      vx:(Math.random()-.5)*.25,
+      vy:(Math.random()-.5)*.25,
+      o:Math.random()*.5+.15
+    });
+  }
+  function drawPts(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const isDark = html.getAttribute('data-theme') !== 'light';
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=canvas.width;
+      if(p.x>canvas.width)p.x=0;
+      if(p.y<0)p.y=canvas.height;
+      if(p.y>canvas.height)p.y=0;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = isDark ? `rgba(232,185,74,${p.o})` : `rgba(181,130,10,${p.o})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawPts);
+  }
+  drawPts();
+}
+
+/* 3D BOOK */
+const bookStage = document.getElementById('book-stage');
+const bookWrap = document.getElementById('book-wrap');
+if(bookStage && bookWrap){
+  bookStage.addEventListener('mousemove', e=>{
+    const r = bookStage.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    bookWrap.style.transform = `rotateY(${-6 + x*18}deg) rotateX(${2 - y*10}deg) scale(1.04)`;
+    bookWrap.style.animation = 'none';
+  });
+  bookStage.addEventListener('mouseleave', ()=>{
+    bookWrap.style.transform = '';
+    bookWrap.style.animation = '';
+  });
+}
+
+/* CHAPTER DATA */
+const BASE = 'ch/';
+const chapters = {
+  ict:[
+    {n:1,f:'chapter1.pdf',t:'Exploring the Role of AI-Driven Prompt Engineering in Enhancing ESL Pedagogy and Bridging the Digital Divide in Higher Education',a:'Motia Mannan, Dr. Tarekol Islam Maruf, Ahmed Md Kowsar'},
+    {n:2,f:'chapter2.pdf',t:'Application of ML in IoT and Cloud Computing with SDG for Modern-Day Teaching-Learning Domain Empowered by AR & VR',a:'Arpan Tewary, Lumbini Bhaumik, Dr. Abhishek Bandyopadhyay'},
+    {n:3,f:'chapter3.pdf',t:'Applications of AI for Disease Detection in Agricultural Crops',a:'Dr. Bimal Kumar Kalita, Anuj Kumar Das'},
+    {n:4,f:'chapter4.pdf',t:'AI-Driven Sustainability Analytics: Bridging Climate Innovation and Data Visualization for Circular Economy Implementation',a:'Viraj P. Tathavadekar, Dr. Nitin R. Mahankale'},
+    {n:5,f:'chapter5.pdf',t:'Trust and Technology: Gender Differences in E-Health Consultation App Adoption in West Bengal',a:'Ayan Banerjee'},
+    {n:6,f:'chapter6.pdf',t:'AI and IoT for Smart Integrated Farming Systems',a:'Dr. Angshumala Talukdar'},
+    {n:7,f:'chapter7.pdf',t:"From ChatGPT's Ghibli to Gemini Nano Banana: A Survey on Emerging Trends and Ethics in AI-Driven Image Editing Tools",a:'Kabyashree Hazarika'},
+    {n:8,f:'chapter8.pdf',t:'A Review of Fuzzy Association Rule Mining Algorithms',a:'Rajkamal Sarma'},
+    {n:9,f:'chapter9.pdf',t:'A Comparative Study of Instructional Design Models with Special Reference to Dick and Carey Model for E-Content Development',a:'Abdus Safi, Dr. Jaishree Shukla'},
+    {n:10,f:'chapter10.pdf',t:"Leveraging MOOC's for Teacher Training: Opportunities and Challenges",a:'Dr. Lokman Ali'},
+    {n:11,f:'chapter11.pdf',t:'ICT and Preservation of Indigenous Arts and Heritage: Insights from Assam and Northeast India',a:'Kangkana Talukdar'},
+    {n:12,f:'chapter12.pdf',t:'From Neurons to Convolutions: Understanding ANN and CNN',a:'Dr. Bimal Kumar Kalita'},
+  ],
+  math:[
+    {n:13,f:'chapter13.pdf',t:'The Growth Estimate of Iterated Entire Functions in Terms of (p, q)-th Order',a:'Ratan Kumar Dutta'},
+    {n:14,f:'chapter14.pdf',t:'Exploring the Concept of Bitranslations in \u0393-Banach Spaces',a:'Md. Shahidul Islam Khan'},
+  ],
+  physics:[
+    {n:15,f:'chapter15.pdf',t:'Investigation of Neutrino Mixing Angles with a Focus on Scaling and Hybrid Texture Models',a:'Rupam Kalita'},
+    {n:16,f:'chapter16.pdf',t:'Radon Exhalation Rates from Some Soil Samples in Some Areas in Bongaigaon District',a:'Mitali Das'},
+    {n:17,f:'chapter17.pdf',t:'Bioluminescence Emissions from the Indian Winter Species of Firefly Diaphanes sp.',a:'Mana Mohan Rabha'},
+    {n:18,f:'chapter18.pdf',t:'Leveraging Machine Learning for Accurate Determination of Npart in Heavy-Ion Collision Events',a:'Dipankar Basak'},
+    {n:19,f:'chapter19.pdf',t:'Astronomy and Science \u2013 Behind the Myth',a:'Seema Nath'},
+  ],
+  chem:[
+    {n:20,f:'chapter20.pdf',t:'Indium Oxide-Catalyzed Synthesis of Diaryl Disulfides from Aryl Halides',a:'Prasanta Gogoi, Rajmul Ahmed, Imamul Hoque'},
+  ],
+  life:[
+    {n:21,f:'chapter21.pdf',t:'A Comparative Analysis of Different Genes with Regard to Phylogenetic Utilization',a:'Dr. Insan Ara Rahman'},
+    {n:22,f:'chapter22.pdf',t:'Herbal Medicine in the Management of Liver Diseases',a:'Luk Bahadur Chetry, Moromi Engtipi'},
+    {n:23,f:'chapter23.pdf',t:"Assessment of Ecosystem Services of Urpad Beel and Its Impact on People's Dependency",a:'Sangeeta Deka, Insan Ara Rahman et al.'},
+    {n:24,f:'chapter24.pdf',t:'A Study on Fish Diversity in the Ganol River near the Assam\u2013Meghalaya\u2013Bangladesh Border Regions',a:'Samia Ahmed, Rabiul Alom, Dr. Anjam Hussain Barbhuiya, Rashmi Hazarika'},
+    {n:25,f:'chapter25.pdf',t:'Algae as a Source of Natural Colorants in Modern Cosmetics',a:'Krithika K., Anu Swedha A.'},
+    {n:26,f:'chapter26.pdf',t:'Automated Detection of Forest Encroachment: Emerging Techniques and Comparative Analysis',a:'Dr. Rashmi Sarkar'},
+  ],
+  commerce:[
+    {n:27,f:'chapter27.pdf',t:'Role of Artificial Intelligence in Modern HR Practices: A Theoretical Perspective',a:'Dr. M. Shuaib Ahmed, Dr. Shaply Abdul Kareem, D. Yuvaraj, Mohamed Isthiyaq'},
+    {n:28,f:'chapter28.pdf',t:'A Comparative Analysis of Educational Loan Schemes: A Case Study of Public vs. Private Sector Banks',a:'Rohit Das'},
+    {n:29,f:'chapter29.pdf',t:'Employment Opportunities Through Tourism in Goalpara District of Assam: Prospects and Challenges',a:'Anuradha Kumari, Ripa Mandal'},
+  ],
+  social:[
+    {n:30,f:'chapter30.pdf',t:'Internet Gaming Disorder (IGD) and Social Disconnectedness',a:'Sajad Hussain'},
+    {n:31,f:'chapter31.pdf',t:'Plagiarism and Academic Ethics: Challenges and Solutions in Research',a:'Biman Dutta, Dr. Amar Upadhyaya'},
+    {n:32,f:'chapter32.pdf',t:'Management of SDG-3 Related Concepts in Class III Environmental Studies Textbook of Assam',a:'Manoj Ghimire, Dr. Amar Upadhyaya'},
+    {n:33,f:'chapter33.pdf',t:'An Exploration of the Major Causes of Stress among Students and the Role of Parents and Teachers in Its Management',a:'Mubashra Yesmin, Gautami Bezbaruah'},
+    {n:34,f:'chapter34.pdf',t:"A Study on Marriage Among the Tiwa's of Sidhabari Village, Morigaon District, Assam",a:'Dr. Jaya Das'},
+    {n:35,f:'chapter35.pdf',t:'Preserving the Colonial Heritage of Tezpur (Assam), through Digital and Participatory Approaches',a:'Barnali Kakati'},
+    {n:36,f:'chapter36.pdf',t:'Ethnicity and Background of the Ethnic Movements in North-East India',a:'Pranami Devi'},
+  ],
+  arts:[
+    {n:37,f:'chapter37.pdf',t:'Proclaiming Heterogeneity, Autonomizing Ethnicity, Centralizing the Marginalized: Postcolonial Rage in Mamang Dai\'s Poem "The Voice of the Mountain"',a:'Moumita Bhattacharjee'},
+    {n:38,f:'chapter38.pdf',t:'A Review on Life and Works of \u0100di \u015a\u0101\u1e45kar\u0101c\u0101rya',a:'Bandana Sharma'},
+    {n:39,f:'chapter39.pdf',t:'Cross-Generational Reading of Advertising Aesthetics: Minimalist versus Elaborate Visual Design',a:'Nishanta Das'},
+    {n:40,f:'chapter40.pdf',t:'A Landscape of Culture and Heritage in Majuli \u2013 A Comprehensive Study',a:'Budhin Borah'},
+    {n:41,f:'chapter41.pdf',t:'Rice-Beer: Traditional Beverage of the Bodos',a:'Mamani Daimary'},
+  ],
+};
+
+const allChapters = Object.values(chapters).flat();
+
+function makeCard(ch){
+  return `<a href="${BASE}${ch.f}" target="_blank" rel="noopener" class="chapter-card" aria-label="Chapter ${ch.n}: ${ch.t}">
+    <span class="ch-num">Ch.\u200a${ch.n}</span>
+    <div class="ch-body">
+      <div class="ch-title">${ch.t}</div>
+      <div class="ch-author">${ch.a}</div>
+      <span class="ch-pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        PDF
+      </span>
+    </div>
+    <span class="ch-arrow" aria-hidden="true">&#8599;</span>
+  </a>`;
+}
+
+const keys = ['ict','math','physics','chem','life','commerce','social','arts'];
+keys.forEach(k=>{
+  const html_str = chapters[k].map(makeCard).join('');
+  const all = document.getElementById('g-'+k+'-all');
+  const single = document.getElementById('g-'+k);
+  if(all) all.innerHTML = html_str;
+  if(single) single.innerHTML = html_str;
+});
+
+document.querySelectorAll('.cat-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('.cat-btn').forEach(b=>{ b.classList.remove('on'); b.setAttribute('aria-selected','false'); });
+    btn.classList.add('on'); btn.setAttribute('aria-selected','true');
+    document.getElementById('ch-search').value='';
+    document.querySelectorAll('.cat-section').forEach(s=>s.classList.remove('on'));
+    document.getElementById('cat-'+cat).classList.add('on');
+  });
+});
+
+const searchInput = document.getElementById('ch-search');
+const noResults = document.getElementById('no-results');
+searchInput.addEventListener('input',()=>{
+  const q = searchInput.value.trim().toLowerCase();
+  if(!q){
+    const activeCat = document.querySelector('.cat-btn.on');
+    if(activeCat){
+      document.querySelectorAll('.cat-section').forEach(s=>s.classList.remove('on'));
+      document.getElementById('cat-'+activeCat.dataset.cat).classList.add('on');
+    }
+    return;
+  }
+  const results = allChapters.filter(ch=>
+    ch.t.toLowerCase().includes(q) || ch.a.toLowerCase().includes(q)
+  );
+  document.querySelectorAll('.cat-section').forEach(s=>s.classList.remove('on'));
+  document.getElementById('cat-search').classList.add('on');
+  document.querySelectorAll('.cat-btn').forEach(b=>{ b.classList.remove('on'); b.setAttribute('aria-selected','false'); });
+  const grid = document.getElementById('g-search');
+  noResults.style.display = results.length ? 'none' : 'block';
+  grid.innerHTML = results.map(makeCard).join('');
+  document.getElementById('search-label').textContent = `${results.length} result${results.length!==1?'s':''} for "${searchInput.value.trim()}"`;
+});
+
+/* SCROLL REVEAL */
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target); }
+  });
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+/* COUNT UP */
+function countUp(el, target){
+  let n=0; const step=target/60;
+  const t=setInterval(()=>{
+    n=Math.min(n+step,target);
+    el.textContent=Math.floor(n);
+    if(n>=target){el.textContent=target;clearInterval(t);}
+  },16);
+}
+const cuObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      countUp(e.target, parseInt(e.target.dataset.target,10));
+      cuObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.count-up').forEach(el=>cuObs.observe(el));
+
+/* SCROLL TOP */
+const scrollBtn = document.getElementById('scroll-top');
+window.addEventListener('scroll',()=>scrollBtn.classList.toggle('vis', window.scrollY>400));
+scrollBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ACTIVE NAV */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const secObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(a=>{
+        a.style.color='';
+        if(a.getAttribute('href')==='#'+e.target.id) a.style.color='var(--amber)';
+      });
+    }
+  });
+},{threshold:.35});
+sections.forEach(s=>secObs.observe(s));
+
+})();
+</script>
+</body>
+</html>
