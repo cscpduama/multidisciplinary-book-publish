@@ -176,6 +176,48 @@
   .chip b { color: var(--gold); font-weight: 700; margin-right: 6px; }
   .chip a { text-decoration: none; border-bottom: 1px dotted var(--gold); }
   .chip a:hover { color: var(--gold); }
+  .published-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: rgba(198,161,91,0.12);
+    border: 1px solid rgba(198,161,91,0.4);
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin: 22px 0 24px;
+  }
+  .published-banner .dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: #6fbf73;
+    box-shadow: 0 0 0 4px rgba(111,191,115,0.25);
+    flex-shrink: 0;
+  }
+  .published-banner .msg {
+    font-size: 13.5px;
+    color: #f4f1e8;
+  }
+  .published-banner .msg b { color: var(--gold); }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    background: var(--gold);
+    color: #16233F;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 9px 18px;
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .download-btn:hover { background: #d8b876; }
+  @media (max-width: 640px) {
+    .published-banner { flex-direction: column; align-items: flex-start; }
+    .download-btn { margin-left: 0; }
+  }
   
   .stats-row {
     display: flex;
@@ -580,6 +622,14 @@
   <div class="masthead-inner">
     <div class="masthead-text">
       <div class="eyebrow"><span class="seal">CS</span> Department of Computer Science · PDUAM, Amjonga, Goalpara, Assam</div>
+      <div class="published-banner">
+        <span class="dot"></span>
+        <span class="msg"><b>Now Published</b> — the complete e-Book is available to read and download.</span>
+        <a class="download-btn" href="https://drive.google.com/file/d/1iOAhjlwlF4fdmxwZsTPlxWWvMbO60_2Q/view?usp=sharing" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 12.5h12v2H2z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download Full e-Book
+        </a>
+      </div>
       <h1 class="title">Advances in Multidisciplinary Research and Innovation</h1>
       <p class="subtitle">Second Edition — International Edited Volume · Deep Science Publishing (USA · UK · India · Turkey)</p>
       <div class="chips">
